@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chudjak And Defence Of Agartha</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="" href="img/favicon.png">
+</head>
+<body>
+    <!-- Music player-->
+     <div class="musicPlayer">
+        <div class="currentlyPlaying">Clarity.mp3 - 10:13</div>
+        <div class="buttonsWrap">
+            <img src="img/forward.svg" alt="Rewind button" class="rewindButton">
+            <img src="img/pause.svg" alt="Pause button" class="pauseButton">
+            <img src="img/forward.svg" alt="Forward button" class="forwardButton">
+        </div>
+        <input type="range" class="volumeInput">
+     </div>
+
+    <!-- Main menu -->
+    <div class="mainMenu">
+        <div class="titleWrap">
+            <div class="title">Chudjak And Defence Of Agartha</div>
+            <div class="author">Made by Sigma Budanov</div>
+        </div>
+            <div class="MainWrap">
+            <div class="startButton" style="opacity: 1;" onclick="startGame()">Start</div>
+            <div class="options">Options</div>
+        </div>
+    </div>
+
+
+    <!-- In game -->
+     <div class="game" style="display: none; opacity: 0;"></div>
+
+    <script src="js/functions.js"></script>
+    <script src="js/menus.js"></script>
+    <script src="js/levels.js"></script>
+    <script src="js/levelInitialization.js"></script>
+    <script src="js/gameUpdate.js"></script>
+    <script src="js/playerMovement.js"></script>
+    <script src="js/ballPhysics.js"></script>
+</body>
+</html>

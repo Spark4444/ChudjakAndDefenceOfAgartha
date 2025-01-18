@@ -1,0 +1,169 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    box-sizing: border-box;
+    font-family: Helvetica;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    font-family: Helvetica;
+    user-select: none;
+    overflow: hidden;
+    background: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.blackSun {
+    position: absolute;
+    top: 62%;
+    left: 16%;
+    width: 5%;
+}
+
+.transgenderFlag {
+    width: 84%;
+    height: 78%;
+}
+
+.mainMenu {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 1s;
+    position: absolute;
+    background-image: url(../img/whiteSun.gif);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    flex-direction: column;
+}
+
+.startButton {
+    font-size: 5vw;
+    color: white;
+    border-radius: 3vw;
+    width: 15%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    -webkit-text-stroke: 0.1vw black;
+    font-weight: bolder;
+}
+
+.game {
+    width: 100%;
+    height: 50vw;
+    transition: 1s;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+    cursor: none;
+}
+
+.chudjak {
+    position: relative;
+    width: 18%;
+    left: 43%;
+    bottom: -27%;
+}
+
+.title {
+    font-size: 4vw;
+    color: white;
+    -webkit-text-stroke: 0.05vw black;
+}
+
+.author {
+    font-size: 2vw;
+    color: white;
+    -webkit-text-stroke: 0.05vw black;
+}
+
+.options {
+    font-size: 2vw;
+    color: white;
+    -webkit-text-stroke: 0.05vw black;
+    cursor: pointer;
+}
+
+.titleWrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+    top: -17%;
+}
+
+.MainWrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: -7%;
+}
+
+.wrap0 {
+    display: grid;
+    height: 25vw;
+    width: 100%;
+    grid-template-rows: 5vw 5vw 5vw 5vw 5vw;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    align-items: center;
+    justify-items: center;
+}
+
+.musicPlayer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    width: 10%;
+    height: 8%;
+    background: white;
+}
+
+.currentlyPlaying {
+    font-size: 1vw;
+}
+
+.buttonsWrap {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 51%;
+}
+
+.rewindButton {
+    width: 33%;
+    transform: rotate(180deg);
+}
+
+.pauseButton {
+    width: 33%;
+}
+
+.forwardButton {
+    width: 33%;
+}
+
+.volumeInput {
+    width: 50%;
+}
