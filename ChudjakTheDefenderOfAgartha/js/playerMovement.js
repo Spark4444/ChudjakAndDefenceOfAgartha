@@ -1,4 +1,3 @@
-let currentPlayerX = 43;
 let keys = {};
 
 document.addEventListener("keydown", function(event) {
@@ -11,9 +10,20 @@ document.addEventListener("keyup", function(event) {
 
 function updatePlayerPosition() {
     if (keys["ArrowLeft"] || keys["a"]) {
-        currentPlayerX-= 2;
+        currentPlayerX -= playerSpeed;
     }
     if (keys["ArrowRight"] || keys["d"]) {
-        currentPlayerX+= 2;
+        currentPlayerX += playerSpeed;
+    }
+
+    if(currentPlayerX > 82){
+        currentPlayerX = 82;
+    }
+    if(currentPlayerX < 0){
+        currentPlayerX = 0;
+    }
+
+    if(player){
+        player.style.left = `${currentPlayerX}%`;
     }
 }

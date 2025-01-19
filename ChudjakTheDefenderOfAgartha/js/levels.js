@@ -5,13 +5,18 @@ let levels = [
             src: "chudjak",
             class: "chudjak",
             alt: "Chudjak",
+            x: 44,
+            y: 18,
+            speed: 2
         },
         ball: {
             src: "blackSun",
             class: "blackSun",
             alt: "Black sun",
-            speedX: 11,
-            speedY: 11
+            x: 44,
+            y: 6,
+            speedX: 0.7,
+            speedY: 1
         },
         enemies: [
             {

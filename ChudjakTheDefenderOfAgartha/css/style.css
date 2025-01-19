@@ -24,10 +24,8 @@ body {
 }
 
 .blackSun {
-    position: absolute;
-    top: 62%;
-    left: 16%;
-    width: 5%;
+    width: 100%;
+    animation: spin 2s infinite linear;
 }
 
 .transgenderFlag {
@@ -76,8 +74,6 @@ body {
 .chudjak {
     position: relative;
     width: 18%;
-    left: 43%;
-    bottom: -27%;
 }
 
 .title {
@@ -166,4 +162,27 @@ body {
 
 .volumeInput {
     width: 50%;
+}
+
+.ballWrap {
+    width: 5%;
+    height: 5vw;
+}
+
+.ballWrap {
+    width: 5%;
+    position: relative;
+    height: 5vw;
+    left: 44%;
+    top: 6%;
+}
+
+@keyframes spin {
+    0%{
+        transform: rotate(0deg)
+    }
+
+    100%{
+        transform: rotate(360deg);
+    }
 }
