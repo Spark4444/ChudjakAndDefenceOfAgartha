@@ -13,10 +13,10 @@ let levels = [
             src: "blackSun",
             class: "blackSun",
             alt: "Black sun",
-            x: 44,
-            y: 6,
-            speedX: 0.7,
-            speedY: 1
+            x: 50,
+            y: 5,
+            speedX: 1,
+            speedY: 1.5
         },
         enemies: [
             {

@@ -1,4 +1,4 @@
-let levelId = 0;
+let levelId = getFromLocalStorageIfPresent(0, 0);
 let currentLevel = levels[levelId];
 let currentCharacter = currentLevel.character;
 let currentBall = currentLevel.ball;
@@ -11,8 +11,6 @@ let currentBallY;
 let ballXSpeed;
 let ballYSpeed;
 
-game.style.backgroundImage = currentLevel.background;
-
 function unpackEnemies(enemiesList){
     let finalString = "";
     enemiesList.forEach(enemy => {
@@ -23,15 +21,18 @@ function unpackEnemies(enemiesList){
     return finalString;
 }
 
-function initLevel(levelId){
+function initLevel(){
+    reinitVaraibles();
+    canRestartGame = true;
     currentPlayerX = currentCharacter.x;
     currentPlayerY = currentCharacter.y;
     playerSpeed = currentCharacter.speed;
-    currentBallX = currentCharacter.x;
-    currentBallY = currentCharacter.y;
+    currentBallX = currentBall.x;
+    currentBallY = currentBall.y;
     ballXSpeed = currentBall.speedX;
     ballYSpeed = currentBall.speedY;
-    game.innerHTML += `
+    game.style.backgroundImage = currentLevel.background;
+    game.innerHTML = `
         <div class="wrap${levelId} enemies">
             ${unpackEnemies(currentEnemies)}
         </div>
@@ -42,5 +43,11 @@ function initLevel(levelId){
     `;
 }
 
-initLevel(levelId);
-levelId++;
+initLevel();
+
+function reinitVaraibles(){
+    currentLevel = levels[levelId];
+    currentCharacter = currentLevel.character;
+    currentBall = currentLevel.ball;
+    currentEnemies = currentLevel.enemies;
+}

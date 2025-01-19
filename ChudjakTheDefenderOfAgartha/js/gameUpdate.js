@@ -17,6 +17,7 @@ function updateSelectors(){
 }
 
 function startGameLoop(){
+    gameStatus = true;
     gameLoop = setInterval(() => {
         updateSelectors();
     
@@ -29,5 +30,6 @@ function startGameLoop(){
 }
 
 function stopGameLoop(){
+    gameStatus = false;
     clearInterval(gameLoop);
 }

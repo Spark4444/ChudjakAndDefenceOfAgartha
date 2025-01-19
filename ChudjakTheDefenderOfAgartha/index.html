@@ -8,7 +8,7 @@
     <link rel="icon" type="" href="img/favicon.png">
 </head>
 <body>
-    <!-- Music player-->
+    <!-- Music player -->
      <div class="musicPlayer" style="visibility: hidden;">
         <div class="currentlyPlaying">Clarity.mp3 - 10:13</div>
         <div class="buttonsWrap">
@@ -18,6 +18,18 @@
         </div>
         <input type="range" class="volumeInput">
      </div>
+
+     <!-- Restart/Pause Menu -->
+     <div class="pauseMenu" style="display: none; opacity: 0;">
+        <div class="menuWrap">
+            <div class="restartButton" onclick="stopGame()">Continue</div>
+            <div class="mainMenuButton" onclick="jumpToMainMenu()">Main menu</div>
+        </div>
+     </div>
+
+     <!-- Count down before starting game -->
+     <div class="countDown" style="display: none;">3</div>
+
 
     <!-- Main menu -->
     <div class="mainMenu">
