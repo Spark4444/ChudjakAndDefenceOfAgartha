@@ -2,7 +2,7 @@
 let mainMenu = document.querySelector(".mainMenu");
 let game = document.querySelector(".game");
 let pauseMenu = document.querySelector(".pauseMenu");
-let restartButton = document.querySelector(".restartButton");
+let continueButton = document.querySelector(".continueButton");
 let countDown = document.querySelector(".countDown");
 let body = document.querySelector("body");
 
@@ -49,7 +49,7 @@ function stopGame(){
             pauseMenu.style.opacity = "0";
             hidePauseMenu = setTimeout(() => {
                 pauseMenu.style.display = "none";
-                restartButton.innerHTML = "Continue";
+                continueButton.innerHTML = "Continue";
             }, 500);
         }
     }
@@ -68,7 +68,7 @@ function restartGame(){
             if(gameStatus){
                 stopGame();
             }
-            restartButton.innerHTML = "Restart";
+            continueButton.innerHTML = "Restart";
             initLevel();
         }, 300);
     }

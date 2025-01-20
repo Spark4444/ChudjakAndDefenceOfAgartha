@@ -10,7 +10,9 @@
 <body>
     <!-- Music player -->
      <div class="musicPlayer" style="visibility: hidden;">
+        <div class="hideButton"></div>
         <div class="currentlyPlaying">Clarity.mp3 - 10:13</div>
+        <input type="range" class="timeInput">
         <div class="buttonsWrap">
             <img src="img/forward.svg" alt="Rewind button" class="rewindButton">
             <img src="img/pause.svg" alt="Pause button" class="pauseButton">
@@ -19,12 +21,17 @@
         <input type="range" class="volumeInput">
      </div>
 
-     <!-- Restart/Pause Menu -->
+     <!-- Restart/Pause, Settings windows -->
      <div class="pauseMenu" style="display: none; opacity: 0;">
         <div class="menuWrap">
-            <div class="restartButton" onclick="stopGame()">Continue</div>
+            <div class="continueButton" onclick="stopGame()">Continue</div>
+            <div class="restartButton" onclick="">Restart</div>
             <div class="mainMenuButton" onclick="jumpToMainMenu()">Main menu</div>
         </div>
+     </div>
+
+     <div class="settings" style="display: none; opacity: 0;">
+
      </div>
 
      <!-- Count down before starting game -->

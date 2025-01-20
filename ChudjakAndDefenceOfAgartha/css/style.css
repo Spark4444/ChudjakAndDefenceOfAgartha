@@ -131,44 +131,45 @@ body {
 
 .musicPlayer {
     position: fixed;
-    top: 0;
-    left: 0;
+    top: 1%;
+    left: 1%;
     display: flex;
     align-items: center;
     flex-direction: column;
-    justify-content: center;
-    width: 10%;
-    height: 8%;
-    background: white;
+    justify-content: space-evenly;
+    width: 15%;
+    height: 13%;
+    filter: invert(1);
 }
 
 .currentlyPlaying {
-    font-size: 1vw;
+    font-size: 1.4vw;
 }
 
 .buttonsWrap {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
-    width: 51%;
+    justify-content: space-evenly;
+    width: 60%;
+    height: 16%;
 }
 
 .rewindButton {
-    width: 33%;
+    width: 20%;
     transform: rotate(180deg);
 }
 
 .pauseButton {
-    width: 33%;
+    width: 20%;
 }
 
 .forwardButton {
-    width: 33%;
+    width: 20%;
 }
 
 .volumeInput {
-    width: 50%;
+    width: 32%;
 }
 
 .ballWrap {
@@ -201,7 +202,7 @@ body {
     border-radius: 1vw;
 }
 
-.restartButton {
+.continueButton {
     font-size: 3vw;
     cursor: pointer;
 }
@@ -225,6 +226,10 @@ body {
     -webkit-text-stroke: 0.3vw black;
     z-index: 1;
     cursor: none;
+}
+
+input.timeInput {
+    width: 81%;
 }
 
 @keyframes spin {
