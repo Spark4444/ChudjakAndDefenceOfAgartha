@@ -1,16 +1,22 @@
+// Level data
 let levelId = getFromLocalStorageIfPresent(0, 0);
 let currentLevel = levels[levelId];
-let currentCharacter = currentLevel.character;
-let currentBall = currentLevel.ball;
 let currentEnemies = currentLevel.enemies;
+
+// Player data
+let currentCharacter = currentLevel.character;
 let playerSpeed;
 let currentPlayerX;
 let currentPlayerY;
+
+// Ball data
+let currentBall = currentLevel.ball;
 let currentBallX;
 let currentBallY;
 let ballXSpeed;
 let ballYSpeed;
 
+// Function to retrive all the enemies for the level as a string
 function unpackEnemies(enemiesList){
     let finalString = "";
     enemiesList.forEach(enemy => {
@@ -21,6 +27,7 @@ function unpackEnemies(enemiesList){
     return finalString;
 }
 
+// function to set up the level
 function initLevel(){
     reinitVaraibles();
     canRestartGame = true;
@@ -43,8 +50,10 @@ function initLevel(){
     `;
 }
 
+// Initial level setup
 initLevel();
 
+// Function to reinitialize the varaibles
 function reinitVaraibles(){
     currentLevel = levels[levelId];
     currentCharacter = currentLevel.character;

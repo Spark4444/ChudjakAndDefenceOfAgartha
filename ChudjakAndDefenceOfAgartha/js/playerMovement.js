@@ -1,5 +1,7 @@
+// Varaible initialization
 let keys = {};
 
+// Key listeners for the player movement
 document.addEventListener("keydown", function(event) {
     keys[event.key] = true;
 });
@@ -8,6 +10,7 @@ document.addEventListener("keyup", function(event) {
     keys[event.key] = false;
 });
 
+// Player movement
 function updatePlayerPosition() {
     if (keys["ArrowLeft"] || keys["a"]) {
         currentPlayerX -= playerSpeed;

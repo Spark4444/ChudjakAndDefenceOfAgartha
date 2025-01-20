@@ -1,8 +1,9 @@
-let canChangePlayerY= true;
-let canChangeBallX= true;
-let canChangeBallY= true;
+// Game state
+let canChangePlayerY = true;
+let canChangeBallX = true;
+let canChangeBallY = true;
 
-//Function for checking collision with one element
+// Function to check collision between two elements and return the overlaping side of the second element
 function checkCollision(el1, el2) {
     let rect1 = el1.getBoundingClientRect();
     let rect2 = el2.getBoundingClientRect();
@@ -18,19 +19,19 @@ function checkCollision(el1, el2) {
 
     if (topOverlap < bottomOverlap && topOverlap < leftOverlap && topOverlap < rightOverlap) {
         el2.classList.remove("enemy");
-        return 'top';
+        return "top";
     }
     if (bottomOverlap < topOverlap && bottomOverlap < leftOverlap && bottomOverlap < rightOverlap) {
         el2.classList.remove("enemy");
-        return 'bottom';
+        return "bottom";
     }
     if (leftOverlap < rightOverlap && leftOverlap < topOverlap && leftOverlap < bottomOverlap) {
         el2.classList.remove("enemy");
-        return 'left';
+        return "left";
     }
     if (rightOverlap < leftOverlap && rightOverlap < topOverlap && rightOverlap < bottomOverlap) {
         el2.classList.remove("enemy");
-        return 'right';
+        return "right";
     }
 }
 
@@ -93,5 +94,4 @@ function updateBallPosition(){
 
     ball.style.left = `${currentBallX}%`;
     ball.style.top = `${currentBallY}%`;
-
 }

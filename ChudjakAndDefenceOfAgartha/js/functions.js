@@ -4,6 +4,7 @@ const saveToLocalStorage = (key, value) => localStorage.setItem(key, value);
 // Retrieve a value from local storage by its key
 const getFromLocalStorage = key => localStorage.getItem(key);
 
+// Function to get a value from local storage if it is present, otherwise save the default value to local storage and return the default value
 function getFromLocalStorageIfPresent(key, defaultValue){
     let item = getFromLocalStorage(key);
     if(item){

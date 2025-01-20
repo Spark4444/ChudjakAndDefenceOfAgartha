@@ -1,6 +1,7 @@
+// Level information
 let levels = [
     {
-        background: `url('img/hyperborea.png')`,
+        background: `url("img/hyperborea.png")`,
         character: {
             src: "chudjak",
             class: "chudjak",
