@@ -3,6 +3,7 @@ let mainMenu = document.querySelector(".mainMenu");
 let game = document.querySelector(".game");
 let pauseMenu = document.querySelector(".pauseMenu");
 let continueButton = document.querySelector(".continueButton");
+let restartButton = document.querySelector(".restartButton");
 let countDown = document.querySelector(".countDown");
 let body = document.querySelector("body");
 
@@ -33,6 +34,11 @@ function startGame(){
     }, 1010);
 }
 
+// Function to open the settings 
+function openSettings(){
+    
+}
+
 // Function to pause the game loop and open the pause menu and vise virsa
 function stopGame(){
     if(canStopGame){
@@ -49,6 +55,7 @@ function stopGame(){
             pauseMenu.style.opacity = "0";
             hidePauseMenu = setTimeout(() => {
                 pauseMenu.style.display = "none";
+                restartButton.style.display = "";
                 continueButton.innerHTML = "Continue";
             }, 500);
         }
@@ -56,19 +63,27 @@ function stopGame(){
 }
 
 // Function to go to the main menu
-function jumpToMainMenu(){
+function openMainMenu(){
     location.reload();
 }
 
+// Function to exit the game
+function exit() {
+    window.close();
+}
+
 // Function to restart the game if player loses
-function restartGame(){
+function restartGame(skipPauseMenu){
     if(canRestartGame){
         canRestartGame = false;
         setTimeout(() => {
-            if(gameStatus){
+            if(gameStatus || skipPauseMenu){
                 stopGame();
             }
-            continueButton.innerHTML = "Restart";
+            if(!skipPauseMenu){
+                restartButton.style.display = "none";
+                continueButton.innerHTML = "Restart";
+            }
             initLevel();
         }, 300);
     }

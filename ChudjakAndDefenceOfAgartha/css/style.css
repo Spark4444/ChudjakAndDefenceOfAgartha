@@ -56,13 +56,9 @@ body {
 }
 
 .startButton {
-    font-size: 5vw;
+    font-size: 4vw;
     color: white;
     border-radius: 3vw;
-    width: 15%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     cursor: pointer;
     -webkit-text-stroke: 0.1vw black;
     font-weight: bolder;
@@ -84,23 +80,18 @@ body {
 }
 
 .title {
-    font-size: 4vw;
-    color: white;
-    -webkit-text-stroke: 0.05vw black;
+    font-size: 5vw;
+    color: #000000;
+    -webkit-text-stroke: 0.06vw #ffffff;
 }
 
 .author {
     font-size: 2vw;
-    color: white;
-    -webkit-text-stroke: 0.05vw black;
+    color: #000000;
+    -webkit-text-stroke: 0.02vw #ffffff;
 }
 
-.options {
-    font-size: 2vw;
-    color: white;
-    -webkit-text-stroke: 0.05vw black;
-    cursor: pointer;
-}
+.options {font-size: 4vw;color: white;border-radius: 3vw;cursor: pointer;-webkit-text-stroke: 0.1vw black;font-weight: bolder;}
 
 .titleWrap {
     display: flex;
@@ -108,15 +99,16 @@ body {
     justify-content: center;
     flex-direction: column;
     position: relative;
-    top: -17%;
+    top: -13%;
 }
 
 .MainWrap {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    margin-top: -7%;
+    justify-content: space-between;
+    margin-top: 0%;
+    height: 25%;
 }
 
 .wrap0 {
@@ -138,8 +130,9 @@ body {
     flex-direction: column;
     justify-content: space-evenly;
     width: 15%;
-    height: 13%;
-    filter: invert(1);
+    height: 10vw;
+    color: white;
+    z-index: 2;
 }
 
 .currentlyPlaying {
@@ -156,20 +149,17 @@ body {
 }
 
 .rewindButton {
-    width: 20%;
     transform: rotate(180deg);
 }
 
-.pauseButton {
-    width: 20%;
-}
-
-.forwardButton {
+.rewindButton, .pauseButton, .forwardButton{
+    cursor: pointer;
     width: 20%;
 }
 
 .volumeInput {
     width: 32%;
+    cursor: pointer;
 }
 
 .ballWrap {
@@ -193,25 +183,23 @@ body {
 
 .menuWrap {
     width: 25%;
-    height: 10vw;
+    height: 20vw;
     background: #ffffffc7;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
     flex-direction: column;
     border-radius: 1vw;
 }
 
 .continueButton {
-    font-size: 3vw;
+    font-size: 3.2vw;
     cursor: pointer;
 }
 
 .mainMenuButton {
     cursor: pointer;
     font-size: 2vw;
-    position: relative;
-    bottom: -2%;
 }
 
 .countDown {
@@ -228,8 +216,27 @@ body {
     cursor: none;
 }
 
-input.timeInput {
+.timeInput {
     width: 81%;
+}
+
+.exit {
+    font-size: 3vw;
+    color: white;
+    border-radius: 3vw;
+    cursor: pointer;
+    -webkit-text-stroke: 0.1vw black;
+    font-weight: bolder;
+}
+
+.restartButton {
+    font-size: 2vw;
+    cursor: pointer;
+}
+
+.exitButton {
+    font-size: 2vw;
+    cursor: pointer;
 }
 
 @keyframes spin {
