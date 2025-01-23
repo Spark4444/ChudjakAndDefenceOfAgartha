@@ -8,15 +8,18 @@
     <link rel="icon" type="" href="img/favicon.png">
 </head>
 <body>
+    <!-- Audio files -->
+    <audio src="audio/Clarity.mp3" name="Clarity" id="audio"></audio> 
+
     <!-- Music player -->
      <div class="musicPlayer">
         <div class="hideButton"></div>
         <div class="currentlyPlaying">Clarity.mp3 - 10:13</div>
-        <input type="range" class="timeInput" min="0" max="100" step="1" value="0">
+        <input type="range" class="timeInput" onchange="audio.changeTime(this.value)" min="0" max="100" step="1" value="0">
         <div class="buttonsWrap">
-            <img src="img/forward.svg" alt="Rewind button" class="rewindButton">
-            <img src="img/pause.svg" alt="Pause button" class="pauseButton">
-            <img src="img/forward.svg" alt="Forward button" class="forwardButton">
+            <img src="img/forward.svg" onclick="audio.rewindCurrent()" alt="Rewind button" class="rewindButton">
+            <img src="img/play.svg" onclick="audio.playPauseCurrent()" alt="Pause button" class="pauseButton">
+            <img src="img/forward.svg" onclick="audio.forwardTrack()" alt="Forward button" class="forwardButton">
         </div>
         <input type="range" class="volumeInput" min="0" max="100" step="1" value="0">
      </div>
@@ -43,7 +46,7 @@
     <div class="mainMenu">
         <div class="titleWrap">
             <div class="title">Chudjak And Defence Of Agartha</div>
-            <!-- <div class="author">Made by Sigma Budanov</div> -->
+            <div class="author">Made by Sigma Budanov</div>
         </div>
             <div class="MainWrap">
             <div class="startButton" style="opacity: 1;" onclick="startGame()">Start</div>
