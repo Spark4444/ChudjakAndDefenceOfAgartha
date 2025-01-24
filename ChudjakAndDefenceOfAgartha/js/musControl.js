@@ -37,17 +37,21 @@ class Audio {
     trackState = false;
 
     // Tracks
-    tracks = [
-        document.querySelector("#audio"),
-        document.querySelector("#audio2"),
-        document.querySelector("#audio3"),
-        document.querySelector("#audio4"),
-        document.querySelector("#audio5"),
-        document.querySelector("#audio6"),
-        document.querySelector("#audio7"),
-    ];
+    tracks = [];
 
     constructor() {
+        let counter = 0;
+        while (true) {
+            counter++;
+            let track = document.querySelector(`#audio${counter}`);
+            if(track){
+                this.tracks.push(track);
+            } 
+            else {
+                break;
+            }
+        }
+
         this.pauseAll();
         this.volumeAll(volumeInput.value);
         this.updateInput();
@@ -94,22 +98,8 @@ class Audio {
         this.trackState = true;
         this.tracks[this.currentTrack].play();
         clearInterval(songTimeInterval);
-        songTimeInterval = setInterval(() => {
-            if (!isInteracting) {
-                timeInput.value = this.tracks[this.currentTrack].currentTime;
-                this.updateName();
-            }
-            if (this.tracks[this.currentTrack].ended) {
-                this.currentTrack++;
-                if (this.currentTrack >= this.tracks.length) {
-                    this.currentTrack = 0;
-                }
-                this.updateInput();
-                this.updateName();
-                this.trackState = false;
-                this.playCurrent();
-            }
-        });
+        this.songControl();
+        songTimeInterval = setInterval(this.songControl, 100);
     }
 
     // Pauses the current track
@@ -117,6 +107,36 @@ class Audio {
         this.trackState = false;
         this.tracks[this.currentTrack].pause();
         clearInterval(songTimeInterval);
+    }
+
+    // Fade in and fade out and track changing
+    songControl = () => {
+        if (!isInteracting) {
+            timeInput.value = this.tracks[this.currentTrack].currentTime;
+            this.updateName();
+        }
+
+        if(this.tracks[this.currentTrack].duration - this.tracks[this.currentTrack].currentTime < 10){
+            this.tracks[this.currentTrack].volume = ((this.tracks[this.currentTrack].duration - this.tracks[this.currentTrack].currentTime) / 10)  * (volumeInput.value / 100);
+        }
+        else if(this.tracks[this.currentTrack].currentTime < 10){
+            this.tracks[this.currentTrack].volume = (this.tracks[this.currentTrack].currentTime / 10).toFixed(2) * (volumeInput.value / 100);
+        }
+        else{
+            this.tracks[this.currentTrack].volume = volumeInput.value / 100;
+        }
+
+        if(this.tracks[this.currentTrack].ended){
+            this.tracks[this.currentTrack].volume = volumeInput.value / 100;
+            this.currentTrack++;
+            if (this.currentTrack >= this.tracks.length) {
+                this.currentTrack = 0;
+            }
+            this.updateInput();
+            this.updateName();
+            this.trackState = false;
+            this.playCurrent();
+        }
     }
 
     // Rewinds the current track
@@ -181,4 +201,4 @@ class Audio {
 let audio;
 setTimeout(() => {
     audio = new Audio();
-}, 10);
+}, 100);
