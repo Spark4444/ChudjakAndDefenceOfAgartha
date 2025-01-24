@@ -1,3 +1,8 @@
+@font-face {
+    font-family: "HandWritten";
+    src: url("../fonts/HandWritten.ttf");
+}
+
 * {
     box-sizing: border-box;
 }
@@ -9,18 +14,17 @@ html {
 
 body {
     box-sizing: border-box;
-    font-family: Helvetica;
     height: 100%;
     margin: 0;
     padding: 0;
     width: 100%;
-    font-family: Helvetica;
     user-select: none;
     overflow: hidden;
     background: black;
     display: flex;
     align-items: center;
     justify-content: center;
+    font-family: HandWritten;
 }
 
 .blackSun {
@@ -57,10 +61,9 @@ body {
 
 .startButton {
     font-size: 4vw;
-    color: white;
+    color: black;
     border-radius: 3vw;
     cursor: pointer;
-    -webkit-text-stroke: 0.1vw black;
     font-weight: bolder;
 }
 
@@ -80,23 +83,22 @@ body {
 }
 
 .title {
-    font-size: 5vw;
+    font-size: 5.5vw;
     color: #000000;
-    -webkit-text-stroke: 0.06vw #ffffff;
+    -webkit-text-stroke: 0.1vw #ffffff;
 }
 
 .author {
-    font-size: 2vw;
+    font-size: 3vw;
     color: #000000;
-    -webkit-text-stroke: 0.02vw #ffffff;
+    -webkit-text-stroke: 0.05vw #ffffff;
 }
 
 .options {
     font-size: 4vw;
-    color: white;
+    color: black;
     border-radius: 3vw;
     cursor: pointer;
-    -webkit-text-stroke: 0.1vw black;
     font-weight: bolder;
 }
 
@@ -145,8 +147,9 @@ body {
 }
 
 .currentlyPlaying {
-    font-size: 0.9vw;
+    font-size: 1.2vw;
     margin: 2% 0 0 0;
+    font-weight: bold;
 }
 
 .buttonsWrap {
@@ -249,10 +252,9 @@ input[type="range"]::-webkit-slider-thumb {
 
 .exit {
     font-size: 3vw;
-    color: white;
+    color: black;
     border-radius: 3vw;
     cursor: pointer;
-    -webkit-text-stroke: 0.1vw black;
     font-weight: bolder;
 }
 
