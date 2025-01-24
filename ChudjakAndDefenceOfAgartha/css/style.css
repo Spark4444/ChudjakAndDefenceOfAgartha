@@ -91,7 +91,14 @@ body {
     -webkit-text-stroke: 0.02vw #ffffff;
 }
 
-.options {font-size: 4vw;color: white;border-radius: 3vw;cursor: pointer;-webkit-text-stroke: 0.1vw black;font-weight: bolder;}
+.options {
+    font-size: 4vw;
+    color: white;
+    border-radius: 3vw;
+    cursor: pointer;
+    -webkit-text-stroke: 0.1vw black;
+    font-weight: bolder;
+}
 
 .titleWrap {
     display: flex;
@@ -132,11 +139,13 @@ body {
     width: 20%;
     height: 10vw;
     color: white;
+    border-radius: 1vw;
+    background: #1a1a1ad6;
     z-index: 2;
 }
 
 .currentlyPlaying {
-    font-size: 1vw;
+    font-size: 0.9vw;
 }
 
 .buttonsWrap {
@@ -159,7 +168,23 @@ body {
 
 .volumeInput {
     width: 32%;
-    cursor: pointer;
+}
+
+input[type="range"] {
+    border-radius: 1vw;
+    outline: none;
+    -webkit-appearance: none;
+    cursor: grab;
+}
+
+input[type="range"]:active {
+    cursor: grabbing;
+}
+  
+input[type="range"]::-webkit-slider-thumb {
+    width: 1%;
+    height: 0.5vw;
+    -webkit-appearance: none;
 }
 
 .ballWrap {
@@ -237,6 +262,15 @@ body {
 .exitButton {
     font-size: 1.5vw;
     cursor: pointer;
+}
+
+.hideButton {
+    width: 7%;
+    position: absolute;
+    top: 1.5%;
+    left: 2%;
+    cursor: pointer;
+    visibility: visible;
 }
 
 @keyframes spin {

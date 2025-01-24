@@ -1,5 +1,15 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 394.941 394.941" xml:space="preserve" style="fill: white;">
-<g>
-	<path d="M185.492,211.636v109.588l209.449-123.747L185.492,73.718v109.611L0,73.718v247.506L185.492,211.636   z"/>
-</g>
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <defs>
+    <style>
+      .cls-1 {
+        stroke: white;
+        stroke-width: 50px;
+        fill-rule: evenodd;
+      }
+    </style>
+  </defs>
+  <path id="Line_2" data-name="Line 2" class="cls-1" d="M11.131,34.291l6.338-6.338,227.41,227.41-6.338,6.338Z"/>
+  <path id="Line_2-2" data-name="Line 2" class="cls-1" d="M17.469,484.061l-6.338-6.338,227.41-227.41,6.338,6.338Z"/>
+  <path id="Line_2-3" data-name="Line 2" class="cls-1" d="M267.131,34.291l6.338-6.338,227.41,227.41-6.338,6.338Z"/>
+  <path id="Line_2-4" data-name="Line 2" class="cls-1" d="M273.469,484.061l-6.338-6.338,227.41-227.41,6.338,6.338Z"/>
 </svg>

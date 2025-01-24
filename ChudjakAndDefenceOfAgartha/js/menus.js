@@ -2,10 +2,13 @@
 let mainMenu = document.querySelector(".mainMenu");
 let game = document.querySelector(".game");
 let pauseMenu = document.querySelector(".pauseMenu");
+let menuWrap = document.querySelector(".menuWrap");
 let continueButton = document.querySelector(".continueButton");
 let restartButton = document.querySelector(".restartButton");
 let countDown = document.querySelector(".countDown");
 let body = document.querySelector("body");
+let musicPlayer = document.querySelector(".musicPlayer");
+let hideButton = document.querySelector(".hideButton");
 
 // Timers
 let hidePauseMenu;
@@ -15,6 +18,7 @@ let countDownInterval;
 let gameStatus = false;
 let canStopGame = false;
 let canRestartGame = false;
+let musicPlayerStatus = true;
 
 // Function to transition from main menu to game
 function startGame(){
@@ -34,9 +38,23 @@ function startGame(){
     }, 1010);
 }
 
-// Function to open the settings 
+// Function to open/close the settings 
 function openSettings(){
     
+}
+
+// Function to open/close the music player
+function openMusicPlayer(){
+    if(musicPlayerStatus){
+        musicPlayerStatus = false;
+        musicPlayer.style.visibility = "hidden";
+        hideButton.src = "img/show.svg";
+    }
+    else{
+        musicPlayerStatus = true;
+        musicPlayer.style.visibility = "";
+        hideButton.src = "img/hide.svg";
+    }
 }
 
 // Function to pause the game loop and open the pause menu and vise virsa
@@ -56,6 +74,7 @@ function stopGame(){
             hidePauseMenu = setTimeout(() => {
                 pauseMenu.style.display = "none";
                 restartButton.style.display = "";
+                menuWrap.style.height = "";
                 continueButton.innerHTML = "Continue";
             }, 500);
         }
@@ -82,6 +101,7 @@ function restartGame(skipPauseMenu){
             }
             if(!skipPauseMenu){
                 restartButton.style.display = "none";
+                menuWrap.style.height = "15vw"
                 continueButton.innerHTML = "Restart";
             }
             initLevel();

@@ -19,13 +19,13 @@
 
     <!-- Music player -->
      <div class="musicPlayer">
-        <div class="hideButton"></div>
+        <img src="img/hide.svg" draggable="false" onclick="openMusicPlayer()" alt="Hide button" class="hideButton">
         <div class="currentlyPlaying">Clarity.mp3 - 10:13</div>
         <input type="range" class="timeInput" onchange="audio.changeTime(this.value)" min="0" max="100" step="1" value="0">
         <div class="buttonsWrap">
-            <img src="img/forward.svg" onclick="audio.rewindCurrent()" alt="Rewind button" class="rewindButton">
-            <img src="img/play.svg" onclick="audio.playPauseCurrent()" alt="Pause button" class="pauseButton">
-            <img src="img/forward.svg" onclick="audio.forwardTrack()" alt="Forward button" class="forwardButton">
+            <img src="img/forward.svg" draggable="false" onclick="audio.rewindCurrent()" alt="Rewind button" class="rewindButton">
+            <img src="img/play.svg" draggable="false" onclick="audio.playPauseCurrent()" alt="Pause button" class="pauseButton">
+            <img src="img/forward.svg" draggable="false" onclick="audio.forwardTrack()" alt="Forward button" class="forwardButton">
         </div>
         <input type="range" class="volumeInput" min="0" max="100" step="1" value="50">
      </div>

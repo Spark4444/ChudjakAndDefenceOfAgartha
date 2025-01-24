@@ -3,19 +3,19 @@ let keys = {};
 
 // Key listeners for the player movement
 document.addEventListener("keydown", function(event) {
-    keys[event.key] = true;
+    keys[event.code] = true;
 });
 
 document.addEventListener("keyup", function(event) {
-    keys[event.key] = false;
+    keys[event.code] = false;
 });
 
 // Player movement
 function updatePlayerPosition() {
-    if (keys["ArrowLeft"] || keys["a"]) {
+    if (keys["ArrowLeft"] || keys["KeyA"]) {
         currentPlayerX -= playerSpeed;
     }
-    if (keys["ArrowRight"] || keys["d"]) {
+    if (keys["ArrowRight"] || keys["KeyD"]) {
         currentPlayerX += playerSpeed;
     }
 

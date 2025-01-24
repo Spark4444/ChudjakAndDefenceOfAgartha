@@ -10,6 +10,33 @@ let songTimeInterval;
 // Game state
 let isInteracting = false;
 
+// Varaibles for input range
+let min = timeInput.min;
+let max = timeInput.max;
+let value = timeInput.value;
+let min2 = volumeInput.min;
+let max2 = volumeInput.max;
+let value2 = volumeInput.value;
+
+// Function to update the background of the time input
+function updateTime(){
+    min = timeInput.min;
+    max = timeInput.max;
+    value = timeInput.value;
+    timeInput.style.background = `linear-gradient(to right, white 0%, white ${(value-min)/(max-min)*100}%, #aaaaaa ${(value-min)/(max-min)*100}%, #aaaaaa 100%)`;
+}
+
+// Function to update the background of the volume input
+function updateVolume(){
+    min2 = volumeInput.min;
+    max2 = volumeInput.max;
+    value2 = volumeInput.value;
+    volumeInput.style.background = `linear-gradient(to right, white 0%, white ${(value2-min2)/(max2-min2)*100}%, #aaaaaa ${(value2-min2)/(max2-min2)*100}%, #aaaaaa 100%)`;
+}
+
+updateTime();
+updateVolume();
+
 // Event listeners for time input when the user is using it
 timeInput.addEventListener("mousedown", () => {
     isInteracting = true;
@@ -22,11 +49,28 @@ timeInput.addEventListener("mouseup", () => {
 
 timeInput.addEventListener("input", () => {
     audio.updateName(formatTime(timeInput.value));
+    updateTime();
 });
 
 // Event listeners for volume input
 volumeInput.addEventListener("input", () => {
     audio.volumeAll(volumeInput.value);
+    updateVolume();
+});
+
+//Event listener for user input for controlling the audio
+document.addEventListener("keyup", (event) => {
+    switch(event.code){
+        case "KeyJ":
+            audio.rewindCurrent();
+            break;
+        case "KeyK":
+            audio.playPauseCurrent();
+            break;
+        case "KeyL":
+            audio.forwardTrack();
+            break;
+    }
 });
 
 class Audio {
@@ -63,6 +107,7 @@ class Audio {
         timeInput.max = this.tracks[this.currentTrack].duration;
         timeInput.step = this.tracks[this.currentTrack].duration / 100;
         timeInput.value = 0;
+        updateTime();
     }
 
     // Updates the name of the currently playing track
@@ -113,6 +158,7 @@ class Audio {
     songControl = () => {
         if (!isInteracting) {
             timeInput.value = this.tracks[this.currentTrack].currentTime;
+            updateTime();
             this.updateName();
         }
 
