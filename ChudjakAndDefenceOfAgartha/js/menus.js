@@ -18,7 +18,10 @@ let countDownInterval;
 let gameStatus = false;
 let canStopGame = false;
 let canRestartGame = false;
-let musicPlayerStatus = true;
+let musicPlayerStatus = getFromLocalStorageIfPresent("1", true);
+
+// Integers
+let time = getFromLocalStorageIfPresent("2", 3);
 
 // Function to transition from main menu to game
 function startGame(){
@@ -26,7 +29,7 @@ function startGame(){
     setTimeout(() => {
         mainMenu.style.opacity = "0";
         game.style.opacity = "1";
-        startCountDown();
+        startCountDown(time);
         document.addEventListener("keydown", function(event) {
             if (event.key === "Escape" || event.key === "Esc") {
                 stopGame();
@@ -69,7 +72,7 @@ function stopGame(){
             }, 10);
         }
         else{
-            startCountDown();
+            startCountDown(time);
             pauseMenu.style.opacity = "0";
             hidePauseMenu = setTimeout(() => {
                 pauseMenu.style.display = "none";
@@ -110,19 +113,21 @@ function restartGame(skipPauseMenu){
 }
 
 // Count down before starting the game
-function startCountDown(){
+function startCountDown(time){
     canStopGame = false;
-    let number = 2;
     countDown.style.display = "";
+    countDown.innerHTML = `${time}`;
+    console.log(time);
+    time--;
     countDownInterval = setInterval(() => {
-        countDown.innerHTML = `${number}`;
-        if(number == -1){
+        countDown.innerHTML = `${time}`;
+        if(time == -1){
             clearInterval(countDownInterval);
             startGameLoop();
             countDown.style.display = "none";
-            countDown.innerHTML = "3";
+            countDown.innerHTML = `${time}`;
             canStopGame = true;
         }
-        number--;
+        time--;
     }, 1000);
 }

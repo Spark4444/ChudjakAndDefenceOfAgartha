@@ -20,7 +20,7 @@
     <!-- Music player -->
      <div class="musicPlayer">
         <img src="img/hide.svg" draggable="false" onclick="openMusicPlayer()" alt="Hide button" class="hideButton">
-        <div class="currentlyPlaying">Clarity.mp3 - 10:13</div>
+        <div class="currentlyPlaying"></div>
         <input type="range" class="timeInput" onchange="audio.changeTime(this.value)" min="0" max="100" step="1" value="0">
         <div class="buttonsWrap">
             <img src="img/forward.svg" draggable="false" onclick="audio.rewindCurrent()" alt="Rewind button" class="rewindButton">
@@ -45,7 +45,7 @@
      </div>
 
      <!-- Count down before starting game -->
-     <div class="countDown" style="display: none;">3</div>
+     <div class="countDown" style="display: none;"></div>
 
 
     <!-- Main menu -->
