@@ -245,6 +245,8 @@ input[type="range"]::-webkit-slider-thumb {
     -webkit-text-stroke: 0.3vw black;
     z-index: 1;
     cursor: none;
+    transition: 1s;
+    opacity: 0;
 }
 
 .timeInput {

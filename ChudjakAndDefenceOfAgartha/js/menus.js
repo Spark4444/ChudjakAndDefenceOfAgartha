@@ -139,10 +139,16 @@ function startCountDown(time){
     canStopGame = false;
     countDownStatus = true;
     countDown.style.display = "";
+    setTimeout(() => {
+        countDown.style.opacity = "1";
+    }, 10);
     countDown.innerHTML = `${time}`;
     time--;
     countDownInterval = setInterval(() => {
         countDown.innerHTML = `${time}`;
+        if(time == 0){
+            countDown.style.opacity = "0";
+        }
         if(time < 0){
             haultCountDown();
         }

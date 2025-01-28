@@ -95,7 +95,6 @@ class Audio {
             }
         }
 
-
         this.tracks[this.currentTrack].currentTime = getFromLocalStorageIfPresent("4", 0);
         this.pauseAll();
         this.volumeAll(volumeInput.value);
