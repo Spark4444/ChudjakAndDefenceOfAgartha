@@ -99,15 +99,16 @@ class Audio {
         this.tracks[this.currentTrack].currentTime = getFromLocalStorageIfPresent("4", 0);
         this.pauseAll();
         this.volumeAll(volumeInput.value);
-        this.updateInput();
+        setTimeout(() => {
+            this.updateInput();
+        }, 200);
         this.updateName();
         volumeInput.value = getFromLocalStorageIfPresent("5", 50);
         updateVolume();
     }
 
     // Updates the input range and the step of the input
-    async updateInput() {
-        await waitUntilIsNotNaN(this.tracks[this.currentTrack].duration)
+    updateInput() {
         timeInput.max = this.tracks[this.currentTrack].duration;
         timeInput.step = this.tracks[this.currentTrack].duration / 100;
         if(this.currentTrack == getFromLocalStorage("3")){

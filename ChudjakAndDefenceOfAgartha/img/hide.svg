@@ -1,33 +1,60 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
-  <defs>
+  <metadata><?xpacket begin="﻿" id="W5M0MpCehiHzreSzNTczkc9d"?>
+<x:xmpmeta xmlns:x="adobe:ns:meta/" x:xmptk="Adobe XMP Core 9.1-c002 79.a1cd12f, 2024/11/11-19:08:46        ">
+   <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+      <rdf:Description rdf:about=""
+            xmlns:xmp="http://ns.adobe.com/xap/1.0/">
+         <xmp:CreatorTool>Adobe Photoshop 26.3 (20250108.m.2932 fba7528)  (Windows)</xmp:CreatorTool>
+      </rdf:Description>
+   </rdf:RDF>
+</x:xmpmeta>
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                           
+<?xpacket end="w"?></metadata>
+<defs>
     <style>
-      .cls-1, .cls-3 {
-        fill: none;
-      }
-
-      .cls-1, .cls-2, .cls-3 {
+      .cls-1, .cls-2, .cls-4 {
         stroke: white;
       }
 
       .cls-1, .cls-2, .cls-3, .cls-4 {
-        stroke-width: 20px;
+        stroke-width: 15px;
       }
 
       .cls-1, .cls-4 {
         fill-rule: evenodd;
       }
 
-      .cls-2 {
+      .cls-2, .cls-4 {
         fill: white;
       }
 
-      .cls-4 {
-        stroke: white;
+      .cls-3 {
+        stroke: black;
       }
     </style>
   </defs>
-  <path class="cls-1" d="M256,122c139.728,0,253,60.218,253,134.5S395.728,391,256,391,3,330.782,3,256.5,116.272,122,256,122Z"/>
-  <circle class="cls-2" cx="256" cy="256" r="36.062"/>
-  <circle class="cls-3" cx="255.984" cy="256.015" r="80.141"/>
-  <path id="Line_1" data-name="Line 1" class="cls-4" d="M434.631,76.646l0.707,0.707-358,358-0.707-.708Z"/>
+  <path class="cls-1" d="M255.5,113C392.743,113,504,177.023,504,256S392.743,399,255.5,399,7,334.977,7,256,118.257,113,255.5,113Z"/>
+  <circle class="cls-2" cx="256" cy="256" r="97.469"/>
+  <circle class="cls-3" cx="256" cy="256" r="50.438"/>
+  <path id="Line_1" data-name="Line 1" class="cls-4" d="M30.535,482.44l-0.974-.975,451.9-451.9,0.975,0.974Z"/>
 </svg>

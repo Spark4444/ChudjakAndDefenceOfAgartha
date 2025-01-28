@@ -1,15 +1,12 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" style="&#10;    fill: black;&#10;">
   <defs>
     <style>
       .cls-1 {
+        fill: white;
         stroke: white;
-        stroke-width: 50px;
-        fill-rule: evenodd;
+        stroke-width: 8px;
       }
     </style>
   </defs>
-  <path id="Line_2" data-name="Line 2" class="cls-1" d="M11.131,34.291l6.338-6.338,227.41,227.41-6.338,6.338Z"/>
-  <path id="Line_2-2" data-name="Line 2" class="cls-1" d="M17.469,484.061l-6.338-6.338,227.41-227.41,6.338,6.338Z"/>
-  <path id="Line_2-3" data-name="Line 2" class="cls-1" d="M267.131,34.291l6.338-6.338,227.41,227.41-6.338,6.338Z"/>
-  <path id="Line_2-4" data-name="Line 2" class="cls-1" d="M273.469,484.061l-6.338-6.338,227.41-227.41,6.338,6.338Z"/>
+  <path id="Line_1" data-name="Line 1" class="cls-1" d="M251.016,511.988L235.46,496.432,491.423,240.468l15.556,15.556ZM235.46,15.553L251.016,0,506.979,255.96l-15.556,15.556ZM19.632,511.988L4.076,496.432,260.039,240.468,275.6,256.024ZM4.076,15.553L19.632,0,275.6,255.96l-15.556,15.556Z"/>
 </svg>
