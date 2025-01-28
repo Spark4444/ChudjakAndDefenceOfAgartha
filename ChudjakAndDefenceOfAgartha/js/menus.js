@@ -18,7 +18,9 @@ let countDownInterval;
 let gameStatus = false;
 let canStopGame = false;
 let canRestartGame = false;
-let musicPlayerStatus = getFromLocalStorageIfPresent("1", true);
+let musicPlayerStatus = getFromLocalStorageIfPresent("1", "true") == "true" ? true : false ;
+musicPlayerStatus = !musicPlayerStatus;
+openMusicPlayer();
 
 // Integers
 let time = getFromLocalStorageIfPresent("2", 3);

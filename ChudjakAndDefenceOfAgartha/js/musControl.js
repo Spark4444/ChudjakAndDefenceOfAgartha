@@ -34,7 +34,6 @@ function updateVolume(){
     volumeInput.style.background = `linear-gradient(to right, white 0%, white ${(value2-min2)/(max2-min2)*100}%, #aaaaaa ${(value2-min2)/(max2-min2)*100}%, #aaaaaa 100%)`;
 }
 
-updateTime();
 updateVolume();
 
 // Event listeners for time input when the user is using it
@@ -75,7 +74,7 @@ document.addEventListener("keyup", (event) => {
 
 class Audio {
     // Current track
-    currentTrack = 0;
+    currentTrack = getFromLocalStorageIfPresent("3", 0);
 
     // Is track playing
     trackState = false;
@@ -96,10 +95,14 @@ class Audio {
             }
         }
 
+
+        this.tracks[this.currentTrack].currentTime = getFromLocalStorageIfPresent("4", 0);
         this.pauseAll();
         this.volumeAll(volumeInput.value);
         this.updateInput();
         this.updateName();
+        timeInput.value = getFromLocalStorageIfPresent("4", 0);
+        updateTime();
     }
 
     // Updates the input range and the step of the input

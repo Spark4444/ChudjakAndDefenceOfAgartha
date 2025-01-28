@@ -52,7 +52,7 @@ body {
     justify-content: center;
     transition: 1s;
     position: absolute;
-    background-image: url(../img/whiteSun.gif);
+    /* background-image: url(../img/whiteSun.gif); */
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;

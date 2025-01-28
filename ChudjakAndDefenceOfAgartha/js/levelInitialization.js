@@ -1,5 +1,5 @@
 // Level data
-let levelId = getFromLocalStorageIfPresent(0, 0);
+let levelId = getFromLocalStorageIfPresent("0", 0);
 let currentLevel = levels[levelId];
 let currentEnemies = currentLevel.enemies;
 
