@@ -112,7 +112,7 @@ class Audio {
         timeInput.step = this.tracks[this.currentTrack].duration / 100;
         if(this.currentTrack == getFromLocalStorage("3")){
             timeInput.value = getFromLocalStorageIfPresent("4", 0);
-            saveToLocalStorage("3", false);
+            saveToLocalStorage("3", -1);
         }
         else{
             timeInput.value = 0;
@@ -122,11 +122,14 @@ class Audio {
 
     // Updates the name of the currently playing track
     updateName(time) {
+        let src = this.tracks[this.currentTrack].src;
+        let fileName = src.substring(src.lastIndexOf('/') + 1);
+        fileName = fileName.replace(/%20/g, ' ');
         if(time){
-            currentlyPlaying.innerHTML = `${this.tracks[this.currentTrack].getAttribute("name")}.mp3 - ${time}`;
+            currentlyPlaying.innerHTML = `${fileName} - ${time}`;
         }   
         else{
-            currentlyPlaying.innerHTML = `${this.tracks[this.currentTrack].getAttribute("name")}.mp3 - ${formatTime(this.tracks[this.currentTrack].currentTime)}`;
+            currentlyPlaying.innerHTML = `${fileName} - ${formatTime(this.tracks[this.currentTrack].currentTime)}`;
         }
     }
 
