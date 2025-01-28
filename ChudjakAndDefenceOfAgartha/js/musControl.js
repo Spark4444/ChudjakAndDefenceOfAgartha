@@ -101,9 +101,7 @@ class Audio {
         this.volumeAll(volumeInput.value);
         this.updateInput();
         this.updateName();
-        timeInput.value = getFromLocalStorageIfPresent("4", 0);
         volumeInput.value = getFromLocalStorageIfPresent("5", 50);
-        updateTime();
         updateVolume();
     }
 
@@ -112,7 +110,13 @@ class Audio {
         await waitUntilIsNotNaN(this.tracks[this.currentTrack].duration)
         timeInput.max = this.tracks[this.currentTrack].duration;
         timeInput.step = this.tracks[this.currentTrack].duration / 100;
-        timeInput.value = 0;
+        if(this.currentTrack == getFromLocalStorage("3")){
+            timeInput.value = getFromLocalStorageIfPresent("4", 0);
+            saveToLocalStorage("3", false);
+        }
+        else{
+            timeInput.value = 0;
+        }
         updateTime();
     }
 
