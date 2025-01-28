@@ -18,12 +18,24 @@ let countDownInterval;
 let gameStatus = false;
 let canStopGame = false;
 let canRestartGame = false;
+let countDownStatus = false;
 let musicPlayerStatus = getFromLocalStorageIfPresent("1", "true") == "true" ? true : false ;
 musicPlayerStatus = !musicPlayerStatus;
 openMusicPlayer();
 
 // Integers
 let time = getFromLocalStorageIfPresent("2", 3);
+
+// If the user focuses on another window
+window.addEventListener("blur", function() {
+    if(gameStatus && !countDownStatus){
+        stopGame();
+    }
+    else if(countDownStatus){
+        haultCountDown();
+        stopGame();
+    }
+});
 
 // Function to transition from main menu to game
 function startGame(){
@@ -117,19 +129,27 @@ function restartGame(skipPauseMenu){
 // Count down before starting the game
 function startCountDown(time){
     canStopGame = false;
+    countDownStatus = true;
     countDown.style.display = "";
     countDown.innerHTML = `${time}`;
-    console.log(time);
     time--;
     countDownInterval = setInterval(() => {
         countDown.innerHTML = `${time}`;
-        if(time == -1){
-            clearInterval(countDownInterval);
-            startGameLoop();
-            countDown.style.display = "none";
-            countDown.innerHTML = `${time}`;
-            canStopGame = true;
+        if(time < 0){
+            haultCountDown();
         }
         time--;
     }, 1000);
+}
+
+// Stops the countdown
+function haultCountDown(){
+    if(countDownStatus){
+        clearInterval(countDownInterval);
+        startGameLoop();
+        countDown.style.display = "none";
+        countDown.innerHTML = `${time}`;
+        canStopGame = true;
+        countDownStatus = false;
+    }
 }

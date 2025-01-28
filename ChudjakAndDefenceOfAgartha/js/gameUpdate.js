@@ -22,6 +22,14 @@ function updateSelectors(){
     }
 }
 
+function checkIfLevelEnded(){
+    if(document.querySelectorAll(".enemy").length == 0){
+        // Logic for new level
+        // levelId++;
+        // initLevel();
+    }
+}
+
 // Main game loop function to run the game
 function startGameLoop(){
     gameStatus = true;
@@ -34,6 +42,9 @@ function startGameLoop(){
         
         // Ball physics
         updateBallPosition();
+
+        // Check if level ended and skip to next one
+        checkIfLevelEnded();
     }, 1000/fps);
 }
 

@@ -102,7 +102,9 @@ class Audio {
         this.updateInput();
         this.updateName();
         timeInput.value = getFromLocalStorageIfPresent("4", 0);
+        volumeInput.value = getFromLocalStorageIfPresent("5", 50);
         updateTime();
+        updateVolume();
     }
 
     // Updates the input range and the step of the input
