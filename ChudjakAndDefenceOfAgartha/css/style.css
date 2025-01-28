@@ -52,11 +52,12 @@ body {
     justify-content: center;
     transition: 1s;
     position: absolute;
-    /* background-image: url(../img/whiteSun.gif); */
+    background-image: url(../img/whiteSun.gif);
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
     flex-direction: column;
+    z-index: 0;
 }
 
 .startButton {
@@ -143,7 +144,8 @@ body {
     color: white;
     border-radius: 1vw;
     background: #1a1a1ad6;
-    z-index: 2;
+    z-index: 1;
+    transition: 1s;
 }
 
 .currentlyPlaying {
@@ -269,12 +271,12 @@ input[type="range"]::-webkit-slider-thumb {
 }
 
 .hideButton {
-    width: 7%;
+    width: 1.5%;
     position: absolute;
     top: 1.5%;
     left: 2%;
     cursor: pointer;
-    visibility: visible;
+    z-index: 2;
 }
 
 @keyframes spin {

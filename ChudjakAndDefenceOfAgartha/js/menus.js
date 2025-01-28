@@ -13,6 +13,7 @@ let hideButton = document.querySelector(".hideButton");
 // Timers
 let hidePauseMenu;
 let countDownInterval;
+let musicPlayerTimeout;
 
 // Game state
 let gameStatus = false;
@@ -64,12 +65,19 @@ function openSettings(){
 function openMusicPlayer(){
     if(musicPlayerStatus){
         musicPlayerStatus = false;
-        musicPlayer.style.visibility = "hidden";
+        musicPlayer.style.opacity = "0";
+        musicPlayerTimeout = setTimeout(() => {
+            musicPlayer.style.display = "none";
+        }, 1000);
         hideButton.src = "img/show.svg";
     }
     else{
+        clearTimeout(musicPlayerTimeout);
         musicPlayerStatus = true;
-        musicPlayer.style.visibility = "";
+        setTimeout(() => {
+            musicPlayer.style.opacity = "1";
+        }, 10);
+        musicPlayer.style.display = "";
         hideButton.src = "img/hide.svg";
     }
 }

@@ -27,3 +27,15 @@ function formatTime(seconds) {
     let secs = Math.floor(seconds % 60);
     return `${minutes}:${secs < 10 ? "0" : ""}${secs}`;
 }
+
+// Check if value is not NaN
+function checkDuration(value) {
+    return !isNaN(value);
+}
+
+// Async function to wait until value is not NaN
+async function waitUntilIsNotNaN(value) {
+    while (isNaN(value)) {
+        await new Promise(resolve => setTimeout(resolve, 100)); // Check every 100ms
+    }
+}

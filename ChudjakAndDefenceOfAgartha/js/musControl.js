@@ -108,7 +108,8 @@ class Audio {
     }
 
     // Updates the input range and the step of the input
-    updateInput() {
+    async updateInput() {
+        await waitUntilIsNotNaN(this.tracks[this.currentTrack].duration)
         timeInput.max = this.tracks[this.currentTrack].duration;
         timeInput.step = this.tracks[this.currentTrack].duration / 100;
         timeInput.value = 0;
@@ -248,8 +249,5 @@ class Audio {
     }
 }
 
-// Initialize audio 10ms after page loads so that all audio elements are loaded
-let audio;
-setTimeout(() => {
-    audio = new Audio();
-}, 100);
+// Initialize audio
+let audio = new Audio();
