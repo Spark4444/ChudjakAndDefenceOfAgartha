@@ -1,81 +1,33 @@
-@font-face {
-    font-family: "HandWritten";
-    src: url("../fonts/HandWritten.ttf");
-}
-
 * {
     box-sizing: border-box;
 }
 
-html {
-    height: 100%;
-    width: 100%;
+.author {
+    -webkit-text-stroke: 0.05vw rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    font-size: 3vw;
 }
 
-body {
-    box-sizing: border-box;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    user-select: none;
-    overflow: hidden;
-    background: black;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: HandWritten;
+.ballWrap {
+    height: 5vw;
+    left: 44%;
+    position: relative;
+    top: 6%;
+    width: 5%;
 }
 
 .blackSun {
+    animation: 1s linear 0s infinite normal none running spin;
     width: 100%;
-    animation: spin 1s infinite linear;
 }
 
-.transgenderFlag {
-    width: 84%;
-    height: 78%;
-    visibility: hidden;
-    opacity: 0;
-}
-
-.enemy{
-    visibility: visible !important;
-    opacity: 1 !important;
-}
-
-.mainMenu {
-    width: 100%;
-    height: 100%;
-    display: flex;
+.buttonsWrap {
     align-items: center;
-    justify-content: center;
-    transition: 1s;
-    position: absolute;
-    background-image: url(../img/whiteSun.gif);
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
-    flex-direction: column;
-    z-index: 0;
-}
-
-.startButton {
-    font-size: 4vw;
-    color: black;
-    border-radius: 3vw;
-    cursor: pointer;
-    font-weight: bolder;
-}
-
-.game {
-    width: 100%;
-    height: 50vw;
-    transition: 1s;
-    background-repeat: no-repeat;
-    background-size: cover;
-    overflow: hidden;
-    cursor: none;
+    display: flex;
+    flex-direction: row;
+    height: 16%;
+    justify-content: space-evenly;
+    width: 63%;
 }
 
 .chudjak {
@@ -83,149 +35,85 @@ body {
     width: 18%;
 }
 
-.title {
-    font-size: 5.5vw;
-    color: #000000;
-    -webkit-text-stroke: 0.1vw #ffffff;
-}
-
-.author {
-    font-size: 3vw;
-    color: #000000;
-    -webkit-text-stroke: 0.05vw #ffffff;
-}
-
-.options {
-    font-size: 4vw;
-    color: black;
-    border-radius: 3vw;
+.continueButton {
     cursor: pointer;
-    font-weight: bolder;
+    font-size: 3.2vw;
 }
 
-.titleWrap {
-    display: flex;
+.countDown {
+    -webkit-text-stroke: 0.3vw black;
     align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    position: relative;
-    top: -13%;
-}
-
-.MainWrap {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    margin-top: 0%;
-    height: 25%;
-}
-
-.wrap0 {
-    display: grid;
-    height: 25vw;
-    width: 100%;
-    grid-template-rows: 5vw 5vw 5vw 5vw 5vw;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    align-items: center;
-    justify-items: center;
-}
-
-.musicPlayer {
-    position: fixed;
-    top: 1%;
-    left: 1%;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: space-evenly;
-    width: 20%;
-    height: 10vw;
     color: white;
-    border-radius: 1vw;
-    background: #1a1a1ad6;
-    z-index: 1;
+    cursor: none;
+    display: flex;
+    font-size: 24vw;
+    height: 100%;
+    justify-content: center;
+    opacity: 0;
+    position: absolute;
     transition: 1s;
+    width: 100%;
+    z-index: 1;
 }
 
 .currentlyPlaying {
     font-size: 1.2vw;
-    margin: 2% 0 0 0;
     font-weight: bold;
+    margin: 2% 0px 0px;
+    transition: 1s;
 }
 
-.buttonsWrap {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-evenly;
-    width: 63%;
-    height: 16%;
+.enemy {
+    opacity: 1 !important;
 }
 
-.rewindButton {
-    transform: rotate(180deg);
-}
-
-.rewindButton, .pauseButton, .forwardButton{
+.exit {
+    border-radius: 3vw;
+    color: black;
     cursor: pointer;
-    width: 15%;
+    font-size: 3vw;
+    font-weight: bolder;
 }
 
-.volumeInput {
-    width: 32%;
+.exitButton {
+    cursor: pointer;
+    font-size: 1.5vw;
 }
 
-input[type="range"] {
-    border-radius: 1vw;
-    outline: none;
-    -webkit-appearance: none;
-    cursor: grab;
-}
-
-input[type="range"]:active {
-    cursor: grabbing;
-}
-  
-input[type="range"]::-webkit-slider-thumb {
-    width: 1%;
-    height: 0.5vw;
-    -webkit-appearance: none;
-}
-
-.ballWrap {
-    width: 5%;
-    position: relative;
-    height: 5vw;
-    left: 44%;
-    top: 6%;
-}
-
-.pauseMenu {
+.game {
+    background-repeat: no-repeat;
+    background-size: cover;
+    cursor: none;
+    height: 50vw;
+    overflow: hidden;
+    transition: 1s;
     width: 100%;
-    height: 100%;
-    position: absolute;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 1;
-    transition: 0.5s;
+    z-index: 0;
 }
 
-.menuWrap {
-    width: 25%;
-    height: 20vw;
-    background: #ffffffc7;
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    flex-direction: column;
-    border-radius: 1vw;
-}
-
-.continueButton {
-    font-size: 3.2vw;
+.hideButton {
     cursor: pointer;
+    left: 2%;
+    position: absolute;
+    top: 1.5%;
+    width: 1.5%;
+    z-index: 3;
+}
+
+.mainMenu {
+    align-items: center;
+    background-image: url("../img/whiteSun.gif");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+    position: absolute;
+    transition: 1s;
+    width: 100%;
+    z-index: 0;
 }
 
 .mainMenuButton {
@@ -233,60 +121,172 @@ input[type="range"]::-webkit-slider-thumb {
     font-size: 2vw;
 }
 
-.countDown {
-    width: 100%;
-    position: absolute;
-    display: flex;
+.mainWrap {
     align-items: center;
-    justify-content: center;
-    height: 100%;
-    font-size: 24vw;
+    display: flex;
+    flex-direction: column;
+    height: 25%;
+    justify-content: space-between;
+    margin-top: 0%;
+}
+
+.menuWrap {
+    align-items: center;
+    background: rgba(255, 255, 255, 0.78);
+    border-radius: 1vw;
+    display: flex;
+    flex-direction: column;
+    height: 20vw;
+    justify-content: space-evenly;
+    width: 25%;
+}
+
+.musicPlayer {
+    align-items: center;
+    background: rgba(26, 26, 26, 0.84);
+    border-radius: 1vw;
     color: white;
-    -webkit-text-stroke: 0.3vw black;
-    z-index: 1;
-    cursor: none;
+    display: flex;
+    flex-direction: column;
+    height: 10vw;
+    justify-content: space-evenly;
+    left: 1%;
+    position: fixed;
+    top: 1%;
     transition: 1s;
-    opacity: 0;
-}
-
-.timeInput {
-    width: 81%;
-    margin: -3% 0 0 0;
-}
-
-.exit {
-    font-size: 3vw;
-    color: black;
-    border-radius: 3vw;
-    cursor: pointer;
-    font-weight: bolder;
-}
-
-.restartButton {
-    font-size: 2vw;
-    cursor: pointer;
-}
-
-.exitButton {
-    font-size: 1.5vw;
-    cursor: pointer;
-}
-
-.hideButton {
-    width: 1.5%;
-    position: absolute;
-    top: 1.5%;
-    left: 2%;
-    cursor: pointer;
+    width: 20%;
     z-index: 2;
 }
 
+.options {
+    border-radius: 3vw;
+    color: black;
+    cursor: pointer;
+    font-size: 4vw;
+    font-weight: bolder;
+}
+
+.pauseMenu {
+    align-items: center;
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    position: absolute;
+    transition: 0.5s;
+    width: 100%;
+    z-index: 1;
+}
+
+.restartButton {
+    cursor: pointer;
+    font-size: 2vw;
+}
+
+.rewindButton {
+    transform: rotate(180deg);
+}
+
+.rewindButton, .pauseButton, .forwardButton {
+    cursor: pointer;
+    width: 15%;
+}
+
+.startButton {
+    border-radius: 3vw;
+    color: black;
+    cursor: pointer;
+    font-size: 4vw;
+    font-weight: bolder;
+}
+
+.timeInput {
+    margin: -3% 0px 0px;
+    width: 81%;
+}
+
+.title {
+    -webkit-text-stroke: 0.1vw rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    font-size: 5.5vw;
+}
+
+.titleWrap {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    top: -13%;
+}
+
+.transgenderFlag {
+    height: 78%;
+    opacity: 0;
+    transition: 1s;
+    width: 84%;
+}
+
+.volumeInput {
+    width: 32%;
+}
+
+.wrap0 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 5vw 5vw 5vw 5vw 5vw;
+    height: 25vw;
+    place-items: center;
+    width: 100%;
+}
+
+body {
+    align-items: center;
+    background: black;
+    box-sizing: border-box;
+    display: flex;
+    font-family: HandWritten;
+    height: 100%;
+    justify-content: center;
+    margin: 0px;
+    overflow: hidden;
+    padding: 0px;
+    user-select: none;
+    width: 100%;
+}
+
+html {
+    height: 100%;
+    width: 100%;
+}
+
+input[type="range"] {
+    appearance: none;
+    border-radius: 1vw;
+    cursor: grab;
+    outline: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    appearance: none;
+    height: 0.5vw;
+    width: 1%;
+}
+
+input[type="range"]:active {
+    cursor: grabbing;
+}
+
+@font-face {
+    font-family: HandWritten;
+    src: url("../fonts/HandWritten.ttf");
+}
+
 @keyframes spin {
-    0%{
-        transform: rotate(0deg)
+    0% {
+        transform: rotate(0deg);
     }
 
-    100%{
+    100% {
         transform: rotate(360deg);
     }
 }

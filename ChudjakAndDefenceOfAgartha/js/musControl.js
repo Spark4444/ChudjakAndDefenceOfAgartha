@@ -94,7 +94,6 @@ class Audio {
                 break;
             }
         }
-
         this.tracks[this.currentTrack].currentTime = getFromLocalStorageIfPresent("4", 0);
         this.pauseAll();
         this.volumeAll(volumeInput.value);
@@ -127,9 +126,17 @@ class Audio {
         fileName = fileName.replace(/%20/g, ' ');
         if(time){
             currentlyPlaying.innerHTML = `${fileName} - ${time}`;
-        }   
+        }
         else{
             currentlyPlaying.innerHTML = `${fileName} - ${formatTime(this.tracks[this.currentTrack].currentTime)}`;
+        }
+        if(currentlyPlaying.innerHTML.length > 38){
+            currentlyPlaying.style.fontSize = `0.8vw`;
+            currentlyPlaying.style.margin = `5% 0 0 0`;
+        }
+        else{
+            currentlyPlaying.style.fontSize = ``;
+            currentlyPlaying.style.margin = ``;
         }
     }
 
