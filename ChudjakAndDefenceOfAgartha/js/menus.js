@@ -9,17 +9,20 @@ let countDown = document.querySelector(".countDown");
 let body = document.querySelector("body");
 let musicPlayer = document.querySelector(".musicPlayer");
 let hideButton = document.querySelector(".hideButton");
+let settings = document.querySelector(".settings");
 
 // Timers
 let hidePauseMenu;
 let countDownInterval;
 let musicPlayerTimeout;
+let settingsTimeout;
 
 // Game state
 let gameStatus = false;
 let canStopGame = false;
 let canRestartGame = false;
 let countDownStatus = false;
+let settingsStatus = false;
 let musicPlayerStatus = getFromLocalStorageIfPresent("1", "true") == "true" ? true : false ;
 musicPlayerStatus = !musicPlayerStatus;
 openMusicPlayer();
@@ -58,7 +61,22 @@ function startGame(){
 
 // Function to open/close the settings 
 function openSettings(){
-    
+    if(settingsStatus){
+        settingsStatus = false;
+        settings.style.opacity = "0";
+        settingsTimeout = setTimeout(() => {
+            settings.style.display = "none";
+        }, 1000);
+    }
+    else{
+        clearTimeout(settingsTimeout);
+        settingsStatus = true;
+        settings.display = "";
+        settings.style.display = "";
+        setTimeout(() => {
+            settings.style.opacity = "1";
+        }, 10);
+    }
 }
 
 // Function to open/close the music player

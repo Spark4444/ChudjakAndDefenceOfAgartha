@@ -44,15 +44,36 @@
      <!-- Restart/Pause, Settings windows -->
      <div class="pauseMenu" style="display: none; opacity: 0;">
         <div class="menuWrap">
-            <div class="continueButton" onclick="stopGame()">Continue</div>
-            <div class="restartButton" onclick="restartGame(true)">Restart</div>
-            <div class="mainMenuButton" onclick="openMainMenu()">Main menu</div>
-            <div class="exitButton" onclick="exit()">Exit</div>
+            <div class="pauseMenuWindowControls">
+                <div class="pauseMenuTitle">Pause menu</div>
+                <div class="closePause" onclick="stopGame()">X</div>
+            </div>
+            <div class="pauseMenuButtons">
+                <div class="continueButton" onclick="stopGame()">Continue</div>
+                <div class="restartButton" onclick="restartGame(true)">Restart</div>
+                <div class="mainMenuButton" onclick="openMainMenu()">Main menu</div>
+                <div class="exitButton" onclick="exit()">Exit</div>
+            </div>
         </div>
      </div>
 
      <div class="settings" style="display: none; opacity: 0;">
-
+        <div class="windowControls">
+            <div class="settingsTitle">Settings</div>
+            <div class="closeSettingsButton" onclick="openSettings()">X</div>
+        </div>
+        <div class="options">
+            <div class="option">
+                <div class="optionName">Current level: </div>
+                <select class="levelSelect">
+                    <option value="1">1</option>
+                </select>
+            </div>
+            <div class="option">
+                <div class="optionName">Count down time: </div>
+                <input type="range" class="countDownTime" min="0" max="10" step="1" value="3">
+            </div>
+        </div>
      </div>
 
      <!-- Count down before starting game -->
@@ -67,7 +88,7 @@
         </div>
             <div class="mainWrap">
             <div class="startButton" style="opacity: 1;" onclick="startGame()">Start</div>
-            <div class="options" onclick="openSettings()">Options</div>
+            <div class="optionsText" onclick="openSettings()">Options</div>
             <div class="exit" onclick="exit()">Exit</div>
         </div>
     </div>
