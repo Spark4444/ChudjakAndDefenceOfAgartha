@@ -305,6 +305,8 @@ html {
     z-index: 1;
     border-radius: 3vw;
     transition: 1s;
+    position: absolute;
+    right: 2%;
 }
 
 .option {
@@ -340,14 +342,21 @@ html {
 
 .closeSettingsButton {
     font-size: 4vw;
-    margin: 0px 10% 0px 0px;
+    width: 10%;
     cursor: pointer;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
 }
 
 .settingsTitle {
-    width: 29%;
+    width: 28%;
     font-size: 3vw;
-    margin: 0px 0px 0px 9%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
 }
 
 .optionName {
@@ -387,6 +396,33 @@ html {
 .closePause {
     font-size: 2vw;
     margin: 0 5% 0 0;
+}
+
+.levelSelect {
+    background: white;
+    color: black;
+    filter: invert(1);
+    border: none;
+    outline: none;
+    font-family: 'HandWritten';
+    font-size: 2vw;
+    cursor: pointer;
+    background-image: url(../img/rightArrow.svg);
+    background-position: right center;
+    appearance: none;
+    background-repeat: no-repeat;
+    background-size: 50% 55%;
+    text-align: left;
+    width: 2vw;
+}
+
+.levelSelect:focus {
+    background-image: url("../img/downArrow.svg");
+}
+
+option{
+    background: black;
+    color: white;
 }
 
 @font-face {

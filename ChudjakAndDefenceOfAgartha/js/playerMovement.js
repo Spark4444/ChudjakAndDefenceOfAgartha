@@ -20,7 +20,7 @@ function updatePlayerPosition() {
     }
 
     if(currentPlayerX > 82){
-        currentPlayerX = 82;
+        currentPlayerX = 82;111111
     }
     if(currentPlayerX < 0){
         currentPlayerX = 0;
