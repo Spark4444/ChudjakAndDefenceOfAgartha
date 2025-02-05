@@ -45,7 +45,7 @@
      <div class="pauseMenu" style="display: none; opacity: 0;">
         <div class="menuWrap">
             <div class="pauseMenuWindowControls">
-                <div class="pauseMenuTitle">Pause menu</div>
+                <div class="pauseMenuGrab">Pause menu</div>
                 <div class="closePause" onclick="stopGame()">X</div>
             </div>
             <div class="pauseMenuButtons">
@@ -57,9 +57,9 @@
         </div>
      </div>
 
-     <div class="settings" style="display: none; opacity: 0;">
+     <div class="settings" style="opacity: 1; display: none;">
         <div class="windowControls">
-            <div class="settingsTitle">Settings</div>
+            <div class="settingsGrab">Settings</div>
             <div class="closeSettingsButton" onclick="openSettings()">X</div>
         </div>
         <div class="options">
@@ -107,5 +107,6 @@
     <script src="js/ballPhysics.js"></script>
     <script src="js/musControl.js"></script>
     <script src="js/localStorageControl.js"></script>
+    <script src="js/windowGrab.js"></script>
 </body>
 </html>

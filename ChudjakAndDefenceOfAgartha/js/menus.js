@@ -22,8 +22,10 @@ let gameStatus = false;
 let canStopGame = false;
 let canRestartGame = false;
 let countDownStatus = false;
-let settingsStatus = false;
-let musicPlayerStatus = getFromLocalStorageIfPresent("1", "true") == "true" ? true : false ;
+let settingsStatus = getFromLocalStorageIfPresent("10", "false") == "true" ? true : false;
+settingsStatus = !settingsStatus;
+openSettings();
+let musicPlayerStatus = getFromLocalStorageIfPresent("1", "true") == "true" ? true : false;
 musicPlayerStatus = !musicPlayerStatus;
 openMusicPlayer();
 
@@ -44,6 +46,9 @@ window.addEventListener("blur", function() {
 // Function to transition from main menu to game
 function startGame(){
     game.style.display = "";
+    if(settingsStatus){
+        openSettings();
+    }
     setTimeout(() => {
         mainMenu.style.opacity = "0";
         game.style.opacity = "1";
