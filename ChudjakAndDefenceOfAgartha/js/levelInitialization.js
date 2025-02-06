@@ -1,6 +1,5 @@
 // Level data
-let levelId = getFromLocalStorageIfPresent("0", 0);
-let currentLevel = levels[levelId];
+let currentLevel = levels[parseInt(settingObj.levelId)];
 let currentEnemies = currentLevel.enemies;
 
 // Player data
@@ -40,7 +39,7 @@ function initLevel(){
     ballYSpeed = currentBall.speedY;
     game.style.backgroundImage = currentLevel.background;
     game.innerHTML = `
-        <div class="wrap${levelId} enemies">
+        <div class="wrap${settingObj.levelId} enemies">
             ${unpackEnemies(currentEnemies)}
         </div>
         <div class="ballWrap ball" style="left: ${currentBallX}%; top: ${currentBallY}%;">
@@ -55,7 +54,7 @@ initLevel();
 
 // Function to reinitialize the varaibles
 function reinitVaraibles(){
-    currentLevel = levels[levelId];
+    currentLevel = levels[settingObj.levelId];
     currentCharacter = currentLevel.character;
     currentBall = currentLevel.ball;
     currentEnemies = currentLevel.enemies;

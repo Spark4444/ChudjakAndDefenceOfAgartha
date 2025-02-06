@@ -25,7 +25,7 @@ function updateSelectors(){
 function checkIfLevelEnded(){
     if(document.querySelectorAll(".enemy").length == 0){
         // Logic for new level
-        // levelId++;
+        // settingObj.levelId++;
         // initLevel();
     }
 }

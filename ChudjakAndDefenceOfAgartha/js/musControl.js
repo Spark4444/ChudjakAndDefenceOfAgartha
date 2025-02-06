@@ -122,8 +122,8 @@ class Audio {
     // Updates the name of the currently playing track
     updateName(time) {
         let src = this.tracks[this.currentTrack].src;
-        let fileName = src.substring(src.lastIndexOf('/') + 1);
-        fileName = fileName.replace(/%20/g, ' ');
+        let fileName = src.substring(src.lastIndexOf("/") + 1);
+        fileName = fileName.replace(/%20/g, " ");
         if(time){
             currentlyPlaying.innerHTML = `${fileName} - ${time}`;
         }

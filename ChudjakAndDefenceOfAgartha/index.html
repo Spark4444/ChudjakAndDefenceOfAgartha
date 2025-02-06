@@ -45,8 +45,8 @@
      <div class="pauseMenu" style="display: none; opacity: 0;">
         <div class="menuWrap">
             <div class="pauseMenuWindowControls">
-                <div class="pauseMenuGrab">Pause menu</div>
-                <div class="closePause" onclick="stopGame()">X</div>
+                <div class="menuWrapGrab">Pause menu</div>
+                <div class="closePause"><div class="pauseX" onclick="stopGame()">x</div></div>
             </div>
             <div class="pauseMenuButtons">
                 <div class="continueButton" onclick="stopGame()">Continue</div>
@@ -60,19 +60,20 @@
      <div class="settings" style="opacity: 1; display: none;">
         <div class="windowControls">
             <div class="settingsGrab">Settings</div>
-            <div class="closeSettingsButton" onclick="openSettings()">X</div>
+            <div class="closeSettingsButton"><div class="settingsX" onclick="openSettings()">x</div></div>
         </div>
         <div class="options">
             <div class="option">
                 <div class="optionName">Current level: </div>
-                <select class="levelSelect">
-                    <option class="levelSelectOption" value="1">1</option>
+                <select class="levelSelect setting" variable="levelId">
+                    <option class="levelSelectOption" value="0">0</option>
                     <option class="levelSelectOption" value="1">1</option>
                 </select>
             </div>
             <div class="option">
                 <div class="optionName">Count down time: </div>
-                <input type="range" class="countDownTime" min="0" max="10" step="1" value="3">
+                <input type="range" class="countDownTime setting" variable="time" min="0" max="10" step="1" value="3">
+                <div class="inputValue">3</div>
             </div>
         </div>
      </div>
@@ -99,6 +100,7 @@
      <div class="game" style="display: none; opacity: 0;"></div>
 
     <script src="js/functions.js"></script>
+    <script src="js/settingsInputs.js"></script>
     <script src="js/menus.js"></script>
     <script src="js/levels.js"></script>
     <script src="js/levelInitialization.js"></script>

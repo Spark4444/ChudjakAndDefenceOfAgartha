@@ -29,9 +29,6 @@ let musicPlayerStatus = getFromLocalStorageIfPresent("1", "true") == "true" ? tr
 musicPlayerStatus = !musicPlayerStatus;
 openMusicPlayer();
 
-// Integers
-let time = getFromLocalStorageIfPresent("2", 3);
-
 // If the user focuses on another window
 window.addEventListener("blur", function() {
     if(gameStatus && !countDownStatus){
@@ -52,7 +49,7 @@ function startGame(){
     setTimeout(() => {
         mainMenu.style.opacity = "0";
         game.style.opacity = "1";
-        startCountDown(time);
+        startCountDown(settingObj.time);
         document.addEventListener("keydown", function(event) {
             if (event.key === "Escape" || event.key === "Esc") {
                 stopGame();
@@ -107,7 +104,11 @@ function openMusicPlayer(){
 
 // Function to pause the game loop and open the pause menu and vise virsa
 function stopGame(){
-    if(canStopGame){
+    if(countDownStatus){
+        haultCountDown();
+        stopGame();
+    }
+    else if(canStopGame){
         if(gameStatus){
             stopGameLoop();
             clearTimeout(hidePauseMenu);
@@ -117,7 +118,7 @@ function stopGame(){
             }, 10);
         }
         else{
-            startCountDown(time);
+            startCountDown(settingObj.time);
             pauseMenu.style.opacity = "0";
             hidePauseMenu = setTimeout(() => {
                 pauseMenu.style.display = "none";
@@ -184,8 +185,9 @@ function haultCountDown(){
     if(countDownStatus){
         clearInterval(countDownInterval);
         startGameLoop();
+        countDown.style.opacity = "0";
         countDown.style.display = "none";
-        countDown.innerHTML = `${time}`;
+        countDown.innerHTML = `${settingObj.time}`;
         canStopGame = true;
         countDownStatus = false;
     }

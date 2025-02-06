@@ -1,16 +1,14 @@
-@font-face {
-    font-family: HandWritten;
-    src: url("../fonts/HandWritten.ttf");
-}
-
 * {
     box-sizing: border-box;
 }
 
 .author {
+    font-size: 3vw;
+}
+
+.author, .title {
     -webkit-text-stroke: 0.05vw rgb(255, 255, 255);
     color: rgb(0, 0, 0);
-    font-size: 3vw;
 }
 
 .ballWrap {
@@ -22,7 +20,7 @@
 }
 
 .blackSun {
-    animation: 1s linear 0s infinite normal none running spin;
+    animation: 1s linear infinite spin;
     width: 100%;
 }
 
@@ -41,24 +39,24 @@
 }
 
 .closePause {
-    align-items: center;
     border-left: 0.1vw black solid;
-    cursor: pointer;
-    display: flex;
     font-size: 2vw;
-    height: 100%;
-    justify-content: center;
     width: 11%;
 }
 
-.closeSettingsButton {
-    align-items: center;
-    border-left: 0.2vw white solid;
-    cursor: pointer;
-    display: flex;
-    font-size: 4vw;
-    height: 100%;
+.closePause, .closeSettingsButton {
     justify-content: center;
+}
+
+.closePause, .closeSettingsButton, .menuWrapGrab, .settingsGrab {
+    align-items: center;
+    display: flex;
+    height: 100%;
+}
+
+.closeSettingsButton {
+    border-left: 0.2vw white solid;
+    font-size: 4vw;
     width: 14%;
 }
 
@@ -69,29 +67,33 @@
 
 .countDown {
     -webkit-text-stroke: 0.3vw black;
-    align-items: center;
     color: white;
     cursor: none;
-    display: flex;
     font-size: 24vw;
-    height: 100%;
-    justify-content: center;
     opacity: 0;
-    position: absolute;
     transition: 1s;
-    width: 100%;
     z-index: 1;
 }
 
-.countDownTime {
+.countDown, .pauseMenu, .mainMenu {
+    align-items: center;
+    display: flex;
     height: 100%;
+    justify-content: center;
+    position: absolute;
+    transition: 1s;
+    width: 100%;
+}
+
+.countDownTime {
+    height: 50%;
     width: 9vw;
 }
 
 .currentlyPlaying {
     font-size: 1.2vw;
     font-weight: bold;
-    margin: 2% 0px 0px;
+    margin: 2% 0 0;
     transition: 1s;
 }
 
@@ -132,18 +134,21 @@
     z-index: 3;
 }
 
+.inputValue {
+    margin: 0 0 0 1vw;
+}
+
 .levelSelect {
     appearance: none;
     background-image: url(../img/rightArrow.svg);
     background-position: right center;
     background-repeat: no-repeat;
     background-size: 50% 55%;
-    background: white;
     border: none;
     color: black;
     cursor: pointer;
     filter: invert(1);
-    font-family: 'HandWritten';
+    font-family: "HandWritten";
     font-size: 2vw;
     outline: none;
     text-align: left;
@@ -155,18 +160,11 @@
 }
 
 .mainMenu {
-    align-items: center;
-      background-image: url("../img/whiteSun.gif");
+    background-image: url(../img/whiteSun.gif);
     background-position: center center;
     background-repeat: no-repeat;
     background-size: contain;
-    display: flex;
     flex-direction: column;
-    height: 100%;
-    justify-content: center;
-    position: absolute;
-    transition: 1s;
-    width: 100%;
     z-index: 0;
 }
 
@@ -192,7 +190,23 @@
     flex-direction: column;
     height: 27vw;
     justify-content: space-between;
+    position: absolute;
     width: 25%;
+}
+
+.menuWrapGrab {
+    font-size: 2vw;
+    padding: 0 0 0 3%;
+    width: 89%;
+}
+
+.menuWrapGrab, .settingsGrab {
+    cursor: grab;
+    justify-content: flex-start;
+}
+
+.menuWrapGrab:active, .settingsGrab:active, input[type="range"]:active {
+    cursor: grabbing;
 }
 
 .musicPlayer {
@@ -223,7 +237,7 @@
 }
 
 .optionName {
-    padding: 0px 1vw 0px 0px;
+    padding: 0 1vw 0 0;
 }
 
 .options {
@@ -231,7 +245,7 @@
     border-bottom: 0.2vw solid white;
     border-image: initial;
     border-left: 0.2vw solid white;
-    border-radius: 0px 0px 3vw 3vw;
+    border-radius: 0 0 3vw 3vw;
     border-right: 0.2vw solid white;
     border-top: none;
     display: flex;
@@ -252,13 +266,7 @@
 }
 
 .pauseMenu {
-    align-items: center;
-    display: flex;
-    height: 100%;
-    justify-content: center;
-    position: absolute;
     transition: 0.5s;
-    width: 100%;
     z-index: 1;
 }
 
@@ -272,17 +280,6 @@
     height: 90%;
     justify-content: space-evenly;
     width: 100%;
-}
-
-.pauseMenuGrab {
-    align-items: center;
-    cursor: grab;
-    display: flex;
-    font-size: 2vw;
-    height: 100%;
-    justify-content: flex-start;
-    padding: 0 0 0 3%;
-    width: 89%;
 }
 
 .pauseMenuWindowControls {
@@ -338,18 +335,13 @@
 }
 
 .settingsGrab {
-    align-items: center;
-    cursor: grab;
-    display: flex;
     font-size: 3vw;
-    height: 100%;
-    justify-content: flex-start;
     padding: 0 0 0 4%;
     width: 86%;
 }
 
-.settingsGrab:active, .pauseMenuGrab:active {
-    cursor: grabbing;
+.settingsX, .pauseX {
+    cursor: pointer;
 }
 
 .startButton {
@@ -361,30 +353,11 @@
 }
 
 .timeInput {
-    margin: -3% 0px 0px;
+    margin: -3% 0 0;
     width: 81%;
 }
 
-.timeInput, .volumeInput {
-    appearance: none;
-    border-radius: 1vw;
-    cursor: grab;
-    outline: none;
-}
-
-.timeInput::-webkit-slider-thumb, .volumeInput::-webkit-slider-thumb {
-    appearance: none;
-    height: 0.5vw;
-    width: 1%;
-}
-
-.timeInput:active, .volumeInput:active {
-    cursor: grabbing;
-}
-
 .title {
-    -webkit-text-stroke: 0.1vw rgb(255, 255, 255);
-    color: rgb(0, 0, 0);
     font-size: 5.5vw;
 }
 
@@ -411,7 +384,7 @@
 .windowControls {
     align-items: center;
     background: #545454;
-    border-radius: 3vw 3vw 0px 0px;
+    border-radius: 3vw 3vw 0 0;
     border: 0.2vw solid white;
     color: black;
     display: flex;
@@ -437,10 +410,10 @@ body {
     font-family: HandWritten;
     height: 100%;
     justify-content: center;
-    margin: 0px;
+    margin: 0;
     overflow: hidden;
     overflow: hidden;
-    padding: 0px;
+    padding: 0;
     user-select: none;
     width: 100%;
 }
@@ -450,9 +423,27 @@ html {
     width: 100%;
 }
 
+input[type="range"] {
+    appearance: none;
+    border-radius: 1vw;
+    cursor: grab;
+    outline: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    appearance: none;
+    height: 0.5vw;
+    width: 1%;
+}
+
 option {
     background: black;
     color: white;
+}
+
+@font-face {
+    font-family: HandWritten;
+    src: url("../fonts/HandWritten.ttf");
 }
 
 @keyframes spin {
@@ -464,3 +455,4 @@ option {
         transform: rotate(360deg);
     }
 }
+

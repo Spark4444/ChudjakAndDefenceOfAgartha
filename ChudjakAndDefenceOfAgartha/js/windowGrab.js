@@ -21,7 +21,7 @@ function dragWindow(window){
         e.preventDefault();
         ps3 = e.clientX;
         ps4 = e.clientY;
-        window.style.transition = 'none';
+        window.style.transition = "none";
         document.onmouseup = stopDrag;
         document.onmousemove = dragElem;
     }
@@ -40,7 +40,7 @@ function dragWindow(window){
     }
 
     function stopDrag(){
-        window.style.transition = '';
+        window.style.transition = "";
         document.onmouseup = null;
         document.onmousemove = null;
         if(window.classList[0] === "settings"){
@@ -54,5 +54,5 @@ function dragWindow(window){
     }
 }
 
-dragWindow(pauseMenu);
+dragWindow(menuWrap);
 dragWindow(settings);
