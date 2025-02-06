@@ -1,8 +1,3 @@
-@font-face {
-    font-family: HandWritten;
-    src: url("../fonts/HandWritten.ttf");
-}
-
 * {
     box-sizing: border-box;
 }
@@ -40,28 +35,6 @@
     width: 18%;
 }
 
-.closePause {
-    align-items: center;
-    border-left: 0.1vw black solid;
-    cursor: pointer;
-    display: flex;
-    font-size: 2vw;
-    height: 100%;
-    justify-content: center;
-    width: 11%;
-}
-
-.closeSettingsButton {
-    align-items: center;
-    border-left: 0.2vw white solid;
-    cursor: pointer;
-    display: flex;
-    font-size: 4vw;
-    height: 100%;
-    justify-content: center;
-    width: 14%;
-}
-
 .continueButton {
     cursor: pointer;
     font-size: 3.2vw;
@@ -81,11 +54,6 @@
     transition: 1s;
     width: 100%;
     z-index: 1;
-}
-
-.countDownTime {
-    height: 100%;
-    width: 9vw;
 }
 
 .currentlyPlaying {
@@ -132,31 +100,9 @@
     z-index: 3;
 }
 
-.levelSelect {
-    appearance: none;
-    background-image: url(../img/rightArrow.svg);
-    background-position: right center;
-    background-repeat: no-repeat;
-    background-size: 50% 55%;
-    background: white;
-    border: none;
-    color: black;
-    cursor: pointer;
-    filter: invert(1);
-    font-family: 'HandWritten';
-    font-size: 2vw;
-    outline: none;
-    text-align: left;
-    width: 2vw;
-}
-
-.levelSelect:focus {
-    background-image: url("../img/downArrow.svg");
-}
-
 .mainMenu {
     align-items: center;
-      background-image: url("../img/whiteSun.gif");
+    /* background-image: url("../img/whiteSun.gif"); */
     background-position: center center;
     background-repeat: no-repeat;
     background-size: contain;
@@ -212,35 +158,21 @@
     z-index: 2;
 }
 
-.option {
-    align-items: center;
-    color: white;
-    display: flex;
-    flex-direction: row;
-    font-size: 2vw;
-    justify-content: space-between;
-    width: max-content;
-}
-
-.optionName {
-    padding: 0px 1vw 0px 0px;
-}
-
 .options {
-    align-items: center;
-    border-bottom: 0.2vw solid white;
-    border-image: initial;
-    border-left: 0.2vw solid white;
-    border-radius: 0px 0px 3vw 3vw;
-    border-right: 0.2vw solid white;
-    border-top: none;
-    display: flex;
-    flex-direction: column;
     font-size: 4vw;
     font-weight: bolder;
-    height: 90%;
-    justify-content: space-evenly;
     width: 100%;
+    height: 90%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-evenly;
+    border-right: 0.2vw solid white;
+    border-bottom: 0.2vw solid white;
+    border-left: 0.2vw solid white;
+    border-image: initial;
+    border-top: none;
+    border-radius: 0px 0px 3vw 3vw;
 }
 
 .optionsText {
@@ -259,43 +191,7 @@
     position: absolute;
     transition: 0.5s;
     width: 100%;
-    z-index: 1;
-}
-
-.pauseMenuButtons {
-    align-items: center;
-    border-radius: 0 0 1vw 1vw;
-    border-top: none;
-    border: 0.1vw solid black;
-    display: flex;
-    flex-direction: column;
-    height: 90%;
-    justify-content: space-evenly;
-    width: 100%;
-}
-
-.pauseMenuGrab {
-    align-items: center;
-    cursor: grab;
-    display: flex;
-    font-size: 2vw;
-    height: 100%;
-    justify-content: flex-start;
-    padding: 0 0 0 3%;
-    width: 89%;
-}
-
-.pauseMenuWindowControls {
-    align-items: center;
-    background: #747474;
-    border-radius: 1vw 1vw 0 0;
-    border: 0.1vw solid black;
-    color: white;
-    display: flex;
-    flex-direction: row;
-    height: 3vw;
-    justify-content: space-between;
-    width: 100%;
+    z-index: 3;
 }
 
 .restartButton {
@@ -312,46 +208,6 @@
     width: 15%;
 }
 
-.settings {
-    align-items: center;
-    background: black;
-    border-radius: 3vw;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    height: 30vw;
-    justify-content: space-between;
-    position: absolute;
-    right: 2%;
-    transition: 1s;
-    width: 35%;
-    z-index: 3;
-}
-
-.settingsButtons {
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    height: 85%;
-    justify-content: space-evenly;
-    width: 100%;
-}
-
-.settingsGrab {
-    align-items: center;
-    cursor: grab;
-    display: flex;
-    font-size: 3vw;
-    height: 100%;
-    justify-content: flex-start;
-    padding: 0 0 0 4%;
-    width: 86%;
-}
-
-.settingsGrab:active, .pauseMenuGrab:active {
-    cursor: grabbing;
-}
-
 .startButton {
     border-radius: 3vw;
     color: black;
@@ -363,23 +219,6 @@
 .timeInput {
     margin: -3% 0px 0px;
     width: 81%;
-}
-
-.timeInput, .volumeInput {
-    appearance: none;
-    border-radius: 1vw;
-    cursor: grab;
-    outline: none;
-}
-
-.timeInput::-webkit-slider-thumb, .volumeInput::-webkit-slider-thumb {
-    appearance: none;
-    height: 0.5vw;
-    width: 1%;
-}
-
-.timeInput:active, .volumeInput:active {
-    cursor: grabbing;
 }
 
 .title {
@@ -408,18 +247,6 @@
     width: 32%;
 }
 
-.windowControls {
-    align-items: center;
-    background: #545454;
-    border-radius: 3vw 3vw 0px 0px;
-    border: 0.2vw solid white;
-    color: black;
-    display: flex;
-    height: 14%;
-    justify-content: space-between;
-    width: 100%;
-}
-
 .wrap0 {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
@@ -439,10 +266,10 @@ body {
     justify-content: center;
     margin: 0px;
     overflow: hidden;
-    overflow: hidden;
     padding: 0px;
     user-select: none;
     width: 100%;
+    overflow: hidden;
 }
 
 html {
@@ -450,9 +277,182 @@ html {
     width: 100%;
 }
 
-option {
+.timeInput, .volumeInput {
+    appearance: none;
+    border-radius: 1vw;
+    cursor: grab;
+    outline: none;
+}
+
+.timeInput::-webkit-slider-thumb, .volumeInput::-webkit-slider-thumb {
+    appearance: none;
+    height: 0.5vw;
+    width: 1%;
+}
+
+.timeInput:active, .volumeInput:active {
+    cursor: grabbing;
+}
+
+.settings {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 35%;
+    height: 30vw;
     background: black;
     color: white;
+    z-index: 3;
+    border-radius: 3vw;
+    transition: 1s;
+    position: absolute;
+    right: 2%;
+}
+
+.option {
+    width: max-content;
+    display: flex;
+    font-size: 2vw;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    color: white;
+}
+
+.settingsButtons {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    height: 85%;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.windowControls {
+    display: flex;
+    height: 14%;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    color: black;
+    border: 0.2vw solid white;
+    background: #545454;
+    border-radius: 3vw 3vw 0px 0px;
+}
+
+.closeSettingsButton {
+    font-size: 4vw;
+    width: 14%;
+    cursor: pointer;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-left: 0.2vw white solid;
+}
+
+.optionName {
+    padding: 0px 1vw 0px 0px;
+}
+
+.pauseMenuButtons {
+    width: 100%;
+    height: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+    border: 0.1vw solid black;
+    border-top: none;
+    border-radius: 0 0 1vw 1vw;
+}
+
+.pauseMenuWindowControls {
+    background: #747474;
+    display: flex;
+    width: 100%;
+    height: 3vw;
+    color: white;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border: 0.1vw solid black;
+    border-radius: 1vw 1vw 0 0;
+}
+
+.closePause {
+    font-size: 2vw;
+    cursor: pointer;
+    width: 11%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-left: 0.1vw black solid;
+    height: 100%;
+}
+
+.levelSelect {
+    background: white;
+    color: black;
+    filter: invert(1);
+    border: none;
+    outline: none;
+    font-family: 'HandWritten';
+    font-size: 2vw;
+    cursor: pointer;
+    background-image: url(../img/rightArrow.svg);
+    background-position: right center;
+    appearance: none;
+    background-repeat: no-repeat;
+    background-size: 50% 55%;
+    text-align: left;
+    width: 2vw;
+}
+
+.levelSelect:focus {
+    background-image: url("../img/downArrow.svg");
+}
+
+option{
+    background: black;
+    color: white;
+}
+
+.settingsGrab {
+    cursor: grab;
+    width: 86%;
+    height: 100%;
+    font-size: 3vw;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0 0 0 4%;
+}
+
+.pauseMenuGrab {
+    cursor: grab;
+    width: 89%;
+    height: 100%;
+    font-size: 2vw;
+    padding: 0 0 0 3%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.settingsGrab:active, .pauseMenuGrab:active {
+    cursor: grabbing;
+}
+
+.countDownTime {
+    width: 9vw;
+    height: 100%;
+}
+
+@font-face {
+    font-family: HandWritten;
+    src: url("../fonts/HandWritten.ttf");
 }
 
 @keyframes spin {
