@@ -67,13 +67,18 @@
                 <div class="optionName">Current level: </div>
                 <select class="levelSelect setting" variable="levelId">
                     <option class="levelSelectOption" value="0">0</option>
-                    <option class="levelSelectOption" value="1">1</option>
                 </select>
             </div>
             <div class="option">
                 <div class="optionName">Count down time: </div>
                 <input type="range" class="countDownTime setting" variable="time" min="0" max="10" step="1" value="3">
                 <div class="inputValue">3</div>
+            </div>
+            <div class="option">
+                <div class="resetLocal" onclick="resetLocal()">Reset local storage(in case of any errors)</div>
+            </div>
+            <div class="option">
+                <a href="keybindsDocumentation.html" target="_blank" class="documentation">Keybinds documentation</a>
             </div>
         </div>
      </div>

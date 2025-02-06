@@ -2,6 +2,7 @@
 let canChangePlayerY = true;
 let canChangeBallX = true;
 let canChangeBallY = true;
+let changedSpeed = false;
 
 // Function to check collision between two elements and return the overlaping side of the second element
 function checkCollision(el1, el2) {
@@ -38,7 +39,6 @@ function checkCollision(el1, el2) {
 // General function to update the physics of the ball
 function updateBallPosition(){
     let collisionWithPlayer = checkCollision(ball, player);
-
     currentBallX += ballXSpeed;
     currentBallY += ballYSpeed;
 
@@ -47,7 +47,6 @@ function updateBallPosition(){
     }
 
     if(currentBallY > 40){
-        restartGame();
     }
 
     if(currentBallX < 0){

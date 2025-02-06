@@ -27,3 +27,10 @@ function formatTime(seconds) {
     let secs = Math.floor(seconds % 60);
     return `${minutes}:${secs < 10 ? "0" : ""}${secs}`;
 }
+
+// Function to reset the local storage
+function resetLocal(){
+    localStorage.clear();
+    window.removeEventListener("beforeunload", updateLocalStorage);
+    location.reload();
+}

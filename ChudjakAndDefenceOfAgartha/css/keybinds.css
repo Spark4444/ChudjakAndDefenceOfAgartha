@@ -1,0 +1,58 @@
+* {
+    box-sizing: border-box;
+}
+
+.keybindsList {
+    align-items: center;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    font-size: 2.5vw;
+    height: 40%;
+    justify-content: space-evenly;
+}
+
+.keybindsTitle {
+    color: black;
+    font-size: 4vw;
+}
+
+.keybindsWrap {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+    width: 100%;
+}
+
+.goBack {
+    color: black;
+    font-size: 2.5vw;
+    left: 1%;
+    position: fixed;
+    text-decoration: none;
+    top: 1%;
+}
+
+body {
+    background: red;
+    box-sizing: border-box;
+    font-family: Helvetica;
+    font-family: "HandWritten";
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+html {
+    height: 100%;
+    width: 100%;
+}
+
+@font-face {
+    font-family: HandWritten;
+    src: url("../fonts/HandWritten.ttf");
+}
+

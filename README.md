@@ -1,3 +1,7 @@
+# Disclaimer
+
+This game is not meant to be offensive in any way and does not portray any of my politcal views or anything else. This game is just a remake of a video with the same game
+
 # Chudjak And Defence Of Agartha
 
 A ping-pong like game about chudjak defending agartha from invaders. You use your A, D keys to control chudjak to reflect the ball which destroys your enemies. 

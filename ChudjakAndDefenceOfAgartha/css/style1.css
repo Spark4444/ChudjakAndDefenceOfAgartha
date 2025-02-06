@@ -97,12 +97,6 @@
     transition: 1s;
 }
 
-.documentation {
-    -webkit-text-stroke: 0.000000000001vw white;
-    color: black;
-    text-decoration: none;
-}
-
 .enemy {
     opacity: 1 !important;
 }
@@ -141,11 +135,11 @@
 }
 
 .inputValue {
-    align-items: flex-start;
-    display: flex;
-    justify-content: center;
     margin: 0 0 0 1vw;
     width: 1vw;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
 }
 
 .levelSelect {
@@ -305,10 +299,6 @@
     width: 100%;
 }
 
-.resetLocal {
-    cursor: pointer;
-}
-
 .restartButton {
     cursor: pointer;
     font-size: 2vw;
@@ -455,6 +445,16 @@ option {
     color: white;
 }
 
+.resetLocal {
+    cursor: pointer;
+}
+
+.documentation {
+    color: black;
+    text-decoration: none;
+    -webkit-text-stroke: 0.000000000001vw white;
+}
+
 @font-face {
     font-family: HandWritten;
     src: url("../fonts/HandWritten.ttf");
@@ -469,4 +469,3 @@ option {
         transform: rotate(360deg);
     }
 }
-
