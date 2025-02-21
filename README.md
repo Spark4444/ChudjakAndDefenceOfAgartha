@@ -14,8 +14,8 @@ A ping-pong like game about chudjak defending agartha from invaders. You use you
 ### &nbsp;&nbsp;&nbsp;Or
 
 Use the git clone command to copy it onto your computer
-```
-bash git clone https://github.com/Spark4444/ChudjakAndDefenceOfAgartha 
+```bash
+git clone https://github.com/Spark4444/FandomAdBlocker
 ```
 
 ## Usage
