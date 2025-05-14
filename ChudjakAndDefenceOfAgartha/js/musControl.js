@@ -79,21 +79,90 @@ class Audio {
     // Is track playing
     trackState = false;
 
+    // Object for storing modes
+    // Loop and shuffle modes
+    modes = {
+        "loop": {
+            state: getFromLocalStorageIfPresent("11", false),
+            functionality: () => {
+                if(this.modes.loop.state){
+                    this.tracks[this.currentTrack].loop = true;
+                }
+                else{
+                    this.tracks[this.currentTrack].loop = false;
+                }
+            }
+        },
+        "shuffle": {
+            state: getFromLocalStorageIfPresent("12", false),
+            functionality: () => {
+                if(this.modes.shuffle.state) {
+                    let wasPlaying = this.trackState;
+                    this.pauseCurrent();
+                    // Fisher-Yates shuffle
+                    for (let i = this.tracks.length - 1; i > 0; i--) {
+                        let j = Math.floor(Math.random() * (i + 1));
+                        [this.tracks[i], this.tracks[j]] = [this.tracks[j], this.tracks[i]];
+                    }
+                    if(wasPlaying){
+                        this.playCurrent();
+                    }
+                }
+                else {
+                    let wasPlaying = this.trackState;
+                    this.pauseCurrent();
+                    // Sort the tracks back to their original order
+                    this.tracks.sort((a, b) => {
+                        return parseInt(a.id.replace("audio", "")) - parseInt(b.id.replace("audio", ""));
+                    });
+                    if(wasPlaying){
+                        this.playCurrent();
+                    }
+                }
+            }
+        }
+    }
+
     // Tracks
     tracks = [];
 
     constructor() {
-        let counter = 0;
-        while (true) {
-            counter++;
-            let track = document.querySelector(`#audio${counter}`);
-            if(track){
-                this.tracks.push(track);
-            } 
-            else {
-                break;
+        // Select all audio elements
+        if (getFromLocalStorage("13") === null){
+            let counter = 0;
+            while (true) {
+                counter++;
+                let track = document.querySelector(`#audio${counter}`);
+                if(track){
+                    this.tracks.push(track);
+                } 
+                else {
+                    break;
+                }
             }
         }
+        else {
+            this.tracks = JSON.parse(getFromLocalStorage("13")).map((id) => {
+                return document.querySelector(`#${id}`);
+            });
+        }
+
+        // Listen for play/pause events on each track
+        this.tracks.forEach((track, idx) => {
+            track.addEventListener("pause", () => {
+                if (this.trackState) {
+                    this.trackState = false;
+                    pauseButton.src = "img/play.svg";
+                }
+            });
+            track.addEventListener("play", () => {
+                if (!this.trackState) {
+                    this.trackState = true;
+                    pauseButton.src = "img/pause.svg";
+                }
+            });
+        });
+
         this.tracks[this.currentTrack].currentTime = getFromLocalStorageIfPresent("4", 0);
         this.pauseAll();
         this.volumeAll(volumeInput.value);
@@ -261,7 +330,27 @@ class Audio {
     volume(index, value) {
         this.tracks[index].volume = value / 100;
     }
+
+    // Toggles between loop and shuffle modes
+    toggleMode(mode) {
+        this.modes[mode].state = !this.modes[mode].state;
+        this.modes[mode].functionality();
+    }
+
+    getCurrentTrack() {
+        return this.tracks[this.currentTrack];
+    }
 }
 
 // Initialize audio
 let audio = new Audio();
+
+// Add keyboard controls forward/rewind
+if ("mediaSession" in navigator) {
+    navigator.mediaSession.setActionHandler("previoustrack", () => {
+        audio.rewindCurrent();
+    });
+    navigator.mediaSession.setActionHandler("nexttrack", () => {
+        audio.forwardTrack();
+    });
+}

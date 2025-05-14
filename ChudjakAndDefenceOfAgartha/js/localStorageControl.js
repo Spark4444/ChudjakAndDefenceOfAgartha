@@ -11,6 +11,13 @@ function updateLocalStorage(){
     saveToLocalStorage("8", settingsX);
     saveToLocalStorage("9", settingsY);
     saveToLocalStorage("10", settingsStatus);
+    saveToLocalStorage("11", audio.modes.loop.state);
+    saveToLocalStorage("12", audio.modes.shuffle.state);
+    let save = [];
+    audio.tracks.forEach(element => {
+        save.push(element.id);
+    });
+    saveToLocalStorage("13", JSON.stringify(save));
 }
 
 // If the player updates the page save all of the localStorage values
