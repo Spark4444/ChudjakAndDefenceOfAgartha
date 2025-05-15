@@ -29,8 +29,12 @@
     <audio src="audio/Time Is Ticking Sped Up (G4bby Remix).mp3" id="audio18"></audio>
 
     <!-- Music player -->
-    <img src="" draggable="false" onclick="openMusicPlayer()" alt="Hide button" class="hideButton">
      <div class="musicPlayer" style="opacity: 1; display: none;">
+        <div class="musicPlayerButtonsWrap">
+            <img src="" draggable="false" onclick="openMusicPlayer()" alt="Hide button" class="hideButton">
+            <img src="img/shuffle.svg" onclick="audio.toggleMode('shuffle')" alt="Shuffle button" class="shuffleButton">
+            <img src="img/repeat.svg" onclick="audio.toggleMode('loop')" alt="Loop button" class="loopButton">
+        </div>
         <div class="currentlyPlaying"></div>
         <input type="range" class="timeInput" onchange="audio.changeTime(this.value)" min="0" max="100" step="1" value="0">
         <div class="buttonsWrap">

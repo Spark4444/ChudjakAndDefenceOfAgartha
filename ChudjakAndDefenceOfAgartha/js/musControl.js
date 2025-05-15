@@ -1,6 +1,8 @@
 // DOM elements
 let currentlyPlaying = document.querySelector(".currentlyPlaying");
 let pauseButton = document.querySelector(".pauseButton");
+let shuffleButton = document.querySelector(".shuffleButton");
+let loopButton = document.querySelector(".loopButton");
 let timeInput = document.querySelector(".timeInput");
 let volumeInput = document.querySelector(".volumeInput");
 
@@ -83,32 +85,44 @@ class Audio {
     // Loop and shuffle modes
     modes = {
         "loop": {
-            state: getFromLocalStorageIfPresent("11", false),
+            state: boolean(getFromLocalStorageIfPresent("11", false)),
             functionality: () => {
                 if(this.modes.loop.state){
-                    this.tracks[this.currentTrack].loop = true;
+                    this.getCurrentTrack().loop = true;
+                    loopButton.style.filter = "invert(1)";
                 }
                 else{
-                    this.tracks[this.currentTrack].loop = false;
+                    this.getCurrentTrack().loop = false;
+                    loopButton.style.filter = "";
+                    
                 }
             }
         },
         "shuffle": {
-            state: getFromLocalStorageIfPresent("12", false),
-            functionality: () => {
+            state: boolean(getFromLocalStorageIfPresent("12", false)),
+            functionality: (shuffle = true) => {
                 if(this.modes.shuffle.state) {
-                    let wasPlaying = this.trackState;
-                    this.pauseCurrent();
-                    // Fisher-Yates shuffle
-                    for (let i = this.tracks.length - 1; i > 0; i--) {
-                        let j = Math.floor(Math.random() * (i + 1));
-                        [this.tracks[i], this.tracks[j]] = [this.tracks[j], this.tracks[i]];
-                    }
-                    if(wasPlaying){
-                        this.playCurrent();
+                    shuffleButton.style.filter = "invert(1)";
+                    if (shuffle){
+                        let wasPlaying = this.trackState;
+                        this.pauseCurrent();
+                        // Fisher-Yates shuffle
+                        for (let i = this.tracks.length - 1; i > 0; i--) {
+                            let j = Math.floor(Math.random() * (i + 1));
+                            [this.tracks[i], this.tracks[j]] = [this.tracks[j], this.tracks[i]];
+                        }
+                        if(wasPlaying){
+                            this.playCurrent();
+                            if(this.modes.loop.state){
+                                this.getCurrentTrack().loop = true;
+                            }
+                        }
+                        this.updateInput();
+                        this.updateName();
                     }
                 }
                 else {
+                    shuffleButton.style.filter = "";
                     let wasPlaying = this.trackState;
                     this.pauseCurrent();
                     // Sort the tracks back to their original order
@@ -118,6 +132,8 @@ class Audio {
                     if(wasPlaying){
                         this.playCurrent();
                     }
+                    this.updateInput();
+                    this.updateName();
                 }
             }
         }
@@ -147,23 +163,10 @@ class Audio {
             });
         }
 
-        // Listen for play/pause events on each track
-        this.tracks.forEach((track, idx) => {
-            track.addEventListener("pause", () => {
-                if (this.trackState) {
-                    this.trackState = false;
-                    pauseButton.src = "img/play.svg";
-                }
-            });
-            track.addEventListener("play", () => {
-                if (!this.trackState) {
-                    this.trackState = true;
-                    pauseButton.src = "img/pause.svg";
-                }
-            });
-        });
+        this.modes.loop.functionality();
+        this.modes.shuffle.functionality(false);
 
-        this.tracks[this.currentTrack].currentTime = getFromLocalStorageIfPresent("4", 0);
+        this.getCurrentTrack().currentTime = getFromLocalStorageIfPresent("4", 0);
         this.pauseAll();
         this.volumeAll(volumeInput.value);
         setTimeout(() => {
@@ -176,8 +179,8 @@ class Audio {
 
     // Updates the input range and the step of the input
     updateInput() {
-        timeInput.max = this.tracks[this.currentTrack].duration;
-        timeInput.step = this.tracks[this.currentTrack].duration / 100;
+        timeInput.max = this.getCurrentTrack().duration;
+        timeInput.step = this.getCurrentTrack().duration / 100;
         if(this.currentTrack == getFromLocalStorage("3")){
             timeInput.value = getFromLocalStorageIfPresent("4", 0);
             saveToLocalStorage("4", 0);
@@ -190,14 +193,14 @@ class Audio {
 
     // Updates the name of the currently playing track
     updateName(time) {
-        let src = this.tracks[this.currentTrack].src;
+        let src = this.getCurrentTrack().src;
         let fileName = src.substring(src.lastIndexOf("/") + 1);
         fileName = fileName.replace(/%20/g, " ");
         if(time){
             currentlyPlaying.innerHTML = `${fileName} - ${time}`;
         }
         else{
-            currentlyPlaying.innerHTML = `${fileName} - ${formatTime(this.tracks[this.currentTrack].currentTime)}`;
+            currentlyPlaying.innerHTML = `${fileName} - ${formatTime(this.getCurrentTrack().currentTime)}`;
         }
         if(currentlyPlaying.innerHTML.length > 38){
             currentlyPlaying.style.fontSize = `0.8vw`;
@@ -230,47 +233,41 @@ class Audio {
     // Plays the current track
     playCurrent() {
         this.trackState = true;
-        this.tracks[this.currentTrack].play();
+        this.getCurrentTrack().play();
         clearInterval(songTimeInterval);
         this.songControl();
+        pauseButton.src = "img/pause.svg";
         songTimeInterval = setInterval(this.songControl, 100);
     }
 
     // Pauses the current track
     pauseCurrent() {
         this.trackState = false;
-        this.tracks[this.currentTrack].pause();
+        this.getCurrentTrack().pause();
+        pauseButton.src = "img/play.svg";
         clearInterval(songTimeInterval);
     }
 
     // Fade in and fade out and track changing
     songControl = () => {
         if (!isInteracting) {
-            timeInput.value = this.tracks[this.currentTrack].currentTime;
+            timeInput.value = this.getCurrentTrack().currentTime;
             updateTime();
             this.updateName();
         }
 
-        if(this.tracks[this.currentTrack].duration - this.tracks[this.currentTrack].currentTime < 10){
-            this.tracks[this.currentTrack].volume = ((this.tracks[this.currentTrack].duration - this.tracks[this.currentTrack].currentTime) / 10)  * (volumeInput.value / 100);
+        if(this.getCurrentTrack().duration - this.getCurrentTrack().currentTime < 10){
+            this.getCurrentTrack().volume = ((this.getCurrentTrack().duration - this.getCurrentTrack().currentTime) / 10)  * (volumeInput.value / 100);
         }
-        else if(this.tracks[this.currentTrack].currentTime < 10){
-            this.tracks[this.currentTrack].volume = (this.tracks[this.currentTrack].currentTime / 10).toFixed(2) * (volumeInput.value / 100);
+        else if(this.getCurrentTrack().currentTime < 10){
+            this.getCurrentTrack().volume = (this.getCurrentTrack().currentTime / 10).toFixed(2) * (volumeInput.value / 100);
         }
         else{
-            this.tracks[this.currentTrack].volume = volumeInput.value / 100;
+            this.getCurrentTrack().volume = volumeInput.value / 100;
         }
 
-        if(this.tracks[this.currentTrack].ended){
-            this.tracks[this.currentTrack].volume = volumeInput.value / 100;
-            this.currentTrack++;
-            if (this.currentTrack >= this.tracks.length) {
-                this.currentTrack = 0;
-            }
-            this.updateInput();
-            this.updateName();
-            this.trackState = false;
-            this.playCurrent();
+        if(this.getCurrentTrack().ended){
+            this.forwardTrack();
         }
     }
 
@@ -278,15 +275,18 @@ class Audio {
     rewindCurrent() {
         let currentState = this.trackState;
         this.pauseCurrent();
-        if(this.tracks[this.currentTrack].currentTime < 4){
+        if(this.getCurrentTrack().currentTime < 4){
             this.currentTrack--;
             if(this.currentTrack < 0){
                 this.currentTrack = this.tracks.length - 1;
             }
-            this.tracks[this.currentTrack].currentTime = 0;
+            this.getCurrentTrack().currentTime = 0;
         }
         else{
-            this.tracks[this.currentTrack].currentTime = 0;
+            this.getCurrentTrack().currentTime = 0;
+            if(this.modes.loop.state){
+                this.getCurrentTrack().loop = true;
+            }
         }
 
         this.updateInput();
@@ -298,7 +298,7 @@ class Audio {
 
     // Changes the time of the current track
     changeTime(time) {
-        this.tracks[this.currentTrack].currentTime = time;
+        this.getCurrentTrack().currentTime = time;
         this.updateName();
     }
 
@@ -310,7 +310,10 @@ class Audio {
         if(this.currentTrack > this.tracks.length - 1){
             this.currentTrack = 0;
         }
-        this.tracks[this.currentTrack].currentTime = 0;
+        this.getCurrentTrack().currentTime = 0;
+        if(this.modes.loop.state){
+            this.getCurrentTrack().loop = true;
+        }
 
         this.updateInput();
         this.updateName();
@@ -352,5 +355,14 @@ if ("mediaSession" in navigator) {
     });
     navigator.mediaSession.setActionHandler("nexttrack", () => {
         audio.forwardTrack();
+    });
+
+    navigator.mediaSession.setActionHandler("play", () => {
+        console.log("play");
+        audio.playCurrent();
+    });
+
+    navigator.mediaSession.setActionHandler("pause", () => {
+        audio.pauseCurrent();
     });
 }

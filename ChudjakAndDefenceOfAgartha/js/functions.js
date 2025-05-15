@@ -34,3 +34,18 @@ function resetLocal(){
     window.removeEventListener("beforeunload", updateLocalStorage);
     location.reload();
 }
+
+function boolean(str){
+    if(typeof str === "string"){
+        str = str.toLowerCase();
+        if(str === "true"){
+            return true;
+        }
+        else if(str === "false"){
+            return false;
+        }
+        else{
+            return null;
+        }
+    }
+}

@@ -134,10 +134,10 @@
 .hideButton {
     cursor: pointer;
     left: 2%;
-    position: absolute;
+    position: relative;
     top: 1.5%;
-    width: 1.5%;
-    z-index: 3;
+    width: 7%;
+    pointer-events: all;
 }
 
 .inputValue {
@@ -453,6 +453,33 @@ input[type="range"]::-webkit-slider-thumb {
 option {
     background: black;
     color: white;
+}
+
+.musicPlayerButtonsWrap {
+    left: 1%;
+    position: fixed;
+    top: 1%;
+    height: 10vw;
+    width: 20%;
+    pointer-events: none;
+}
+
+.shuffleButton {
+    position: relative;
+    top: 83%;
+    left: 81%;
+    width: 8%;
+    cursor: pointer;
+    pointer-events: all;
+}
+
+.loopButton {
+    width: 8%;
+    position: relative;
+    top: 83%;
+    left: -16%;
+    cursor: pointer;
+    pointer-events: all;
 }
 
 @font-face {
