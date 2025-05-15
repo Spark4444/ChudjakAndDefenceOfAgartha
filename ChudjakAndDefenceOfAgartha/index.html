@@ -29,9 +29,11 @@
     <audio src="audio/Time Is Ticking Sped Up (G4bby Remix).mp3" id="audio18"></audio>
 
     <!-- Music player -->
+    <div class="musicPlayerButtonsWrap">
+        <img src="" draggable="false" onclick="openMusicPlayer()" alt="Hide button" class="hideButton">
+    </div>
      <div class="musicPlayer" style="opacity: 1; display: none;">
-        <div class="musicPlayerButtonsWrap">
-            <img src="" draggable="false" onclick="openMusicPlayer()" alt="Hide button" class="hideButton">
+        <div class="playerButtonsWrap">
             <img src="img/shuffle.svg" onclick="audio.toggleMode('shuffle')" alt="Shuffle button" class="shuffleButton">
             <img src="img/repeat.svg" onclick="audio.toggleMode('loop')" alt="Loop button" class="loopButton">
         </div>
@@ -42,7 +44,11 @@
             <img src="img/play.svg" draggable="false" onclick="audio.playPauseCurrent()" alt="Pause button" class="pauseButton">
             <img src="img/forward.svg" draggable="false" onclick="audio.forwardTrack()" alt="Forward button" class="forwardButton">
         </div>
-        <input type="range" class="volumeInput" min="0" max="100" step="1" value="50">
+        <div class="volumeWrap">
+            <img src="img/volumeDown.svg" alt="Volume down icon" class="volumeIcon">
+            <input type="range" class="volumeInput" min="0" max="100" step="1" value="50">
+            <img src="img/volumeUp.svg" alt="Volume up icon" class="volumeIcon">
+        </div>
      </div>
 
      <!-- Restart/Pause, Settings windows -->
