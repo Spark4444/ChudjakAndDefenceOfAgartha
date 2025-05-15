@@ -183,7 +183,6 @@ class Audio {
         timeInput.step = this.getCurrentTrack().duration / 100;
         if(this.currentTrack == getFromLocalStorage("3")){
             timeInput.value = getFromLocalStorageIfPresent("4", 0);
-            saveToLocalStorage("4", 0);
         }
         else{
             timeInput.value = 0;
@@ -366,3 +365,8 @@ if ("mediaSession" in navigator) {
         audio.pauseCurrent();
     });
 }
+
+// Reset the current time of the track in localStorage
+setTimeout(() => {
+    saveToLocalStorage("4", 0);
+}, 1000);

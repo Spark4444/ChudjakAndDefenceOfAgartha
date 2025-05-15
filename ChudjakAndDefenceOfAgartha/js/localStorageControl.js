@@ -4,7 +4,7 @@ function updateLocalStorage(){
     saveToLocalStorage("1", musicPlayerStatus);
     saveToLocalStorage("2", settingObj.time);
     saveToLocalStorage("3", audio.currentTrack);
-    saveToLocalStorage("4", audio.getCurrentTrack.currentTime);
+    saveToLocalStorage("4", audio.getCurrentTrack().currentTime);
     saveToLocalStorage("5", volumeInput.value);
     saveToLocalStorage("6", pauseMenuX);
     saveToLocalStorage("7", pauseMenuY);
